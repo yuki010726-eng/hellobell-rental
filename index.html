@@ -1,0 +1,788 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>헬로벨렌탈 — 월 10만원으로 시작하는 온라인 렌탈 대리점</title>
+<meta name="description" content="소유의 시대에서 렌탈의 시대로. 무점포 소자본으로 시작하는 전자제품 온라인 렌탈 대리점, 헬로벨렌탈.">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css">
+<style>
+/* 색은 3가지만: NAVY · BLUE · WHITE (회색·연한 면은 모두 이 세 색의 투명도/틴트) */
+:root{
+  font-size:10px;
+  --navy:#071a52;
+  --blue:#2f5bff;
+  --white:#fff;
+  --paper:#f3f6fc;
+  --tint:#e9eeff;
+  --line:rgba(7,26,82,.1);
+  --mute:rgba(7,26,82,.64);
+  --mute2:rgba(7,26,82,.42);
+  --pad:7.4rem;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:'Pretendard Variable','Pretendard','Malgun Gothic',sans-serif;font-size:1.6rem;font-weight:400;line-height:1.5;letter-spacing:-.025em;color:var(--navy);background:var(--white);word-break:keep-all;overflow-wrap:break-word;-webkit-font-smoothing:antialiased;font-variant-numeric:tabular-nums}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font:inherit;letter-spacing:inherit;color:inherit;background:none;border:0;cursor:pointer}
+ul,ol{list-style:none}
+svg{display:block}
+
+/* ───── util + header ───── */
+.util{height:4.4rem;padding:0 var(--pad);background:var(--paper);display:flex;align-items:center;justify-content:space-between;font-size:1.3rem;color:var(--mute2)}
+.util a{color:var(--mute)}
+.util a:hover{color:var(--navy)}
+header#header{position:sticky;top:0;z-index:100;padding:0 2.4rem;background:var(--paper);transition:padding .3s}
+.header-inner{height:11rem;padding:2rem 5rem;background:var(--white);border-radius:5.6rem 5.6rem 0 0;display:flex;align-items:center;transition:border-radius .3s,padding .3s,height .3s}
+header#header.widen{padding:0}
+header#header.widen .header-inner{border-radius:0;padding-inline:var(--pad);height:8.8rem;border-bottom:1px solid var(--line)}
+.logo{display:flex;align-items:center;gap:.9rem;color:var(--blue);font-style:italic;white-space:nowrap}
+.logo b{font-weight:800;font-size:3.2rem;letter-spacing:-.08rem;line-height:1}
+.logo small{font-style:normal;font-size:1.05rem;font-weight:700;letter-spacing:.24rem;color:var(--mute2);padding-top:1.2rem}
+.gnb{margin-left:6rem}
+.gnb ul{display:flex;gap:2rem}
+.gnb a{display:block;padding:2.15rem 2rem;border-radius:2rem;font-size:1.8rem;font-weight:500;transition:background .2s}
+.gnb a:hover{background:var(--paper)}
+.h-right{margin-left:auto}
+.pill{display:inline-flex;align-items:center;justify-content:center;gap:.6rem;height:4.4rem;padding:0 2rem 0 2.4rem;border-radius:5rem;background:var(--navy);color:var(--white);font-size:1.5rem;font-weight:700;transition:opacity .2s;white-space:nowrap}
+.pill:hover{opacity:.7}
+.pill svg{width:1.8rem;height:1.8rem}
+
+/* ───── frame ───── */
+main{padding:0 2.4rem 2.4rem;background:var(--paper)}
+.main-inner{padding:0 1.6rem;background:var(--white);border-radius:0 0 5.6rem 5.6rem}
+.main-inner section:not(.sec-key-content){max-width:128rem;margin-inline:auto}
+section{margin-bottom:16rem}
+.title-wrap{display:flex;align-items:center;justify-content:space-between;margin-bottom:5rem;gap:3rem}
+.title-wrap .title{font-size:4rem;font-weight:400;letter-spacing:-.07rem;line-height:1.3}
+.title-wrap .title strong{font-weight:700}
+.title-wrap .lead{margin-top:1.6rem;font-size:1.9rem;font-weight:400;color:var(--mute);line-height:1.6;letter-spacing:-.03em;max-width:68rem}
+.btn-wrap{display:flex;gap:.8rem;align-items:center}
+.btn-round{width:5.2rem;height:5.2rem;border-radius:50%;border:1px solid var(--line);background:var(--white);display:flex;align-items:center;justify-content:center;transition:opacity .2s}
+.btn-round:hover{opacity:.55}
+.btn-round[disabled]{opacity:.35;cursor:default}
+.btn-round svg{width:2.4rem;height:2.4rem}
+.reveal{opacity:0;transform:translateY(2rem);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+
+/* ───── ① key visual ───── */
+.sec-key-content{margin-bottom:16rem}
+.marketing-box{position:relative;max-width:184rem;margin:0 auto;aspect-ratio:1840/802}
+.stage{position:absolute;left:0;top:0;width:184rem;height:80.2rem;zoom:var(--hs,1)}
+.hero-shape{position:absolute;inset:0;overflow:hidden;clip-path:url(#heroClip);background:linear-gradient(105deg,#2753f5 0%,#2f5bff 45%,#4a73ff 100%)}
+.banner-contents{position:absolute;left:calc(280 / 1840 * 100%);top:25rem;z-index:2;color:var(--white)}
+.banner-contents .desc{font-size:3.2rem;font-weight:300;line-height:1.3;margin-bottom:1.2rem;letter-spacing:-.064rem}
+.banner-contents .tit{font-size:5.6rem;font-weight:700;line-height:1.3;letter-spacing:-.112rem}
+.banner-contents .btn-wrap{margin-top:4rem}
+.banner-contents .btn{display:flex;align-items:center;gap:.6rem;padding:0 2.6rem 0 3rem;height:5.2rem;border-radius:5rem;font-weight:700;font-size:1.8rem;white-space:nowrap;transition:opacity .2s}
+.banner-contents .btn:hover{opacity:.7}
+.banner-contents .btn svg{width:2.2rem;height:2.2rem}
+.banner-contents .btn.d{background:var(--navy);color:var(--white)}
+.banner-contents .btn.w{background:var(--white);color:var(--navy)}
+.art{--k:1;position:absolute;right:20rem;bottom:17.6rem;width:calc(51.5rem*var(--k));height:calc(54rem*var(--k));z-index:1}
+.art::before{content:"";position:absolute;left:-8%;right:-8%;bottom:-2.2rem;height:5.6rem;background:radial-gradient(ellipse at center,rgba(3,10,40,.6) 0,rgba(3,10,40,.28) 42%,rgba(3,10,40,0) 72%);filter:blur(.7rem);z-index:0}
+.hero-shape .art{--k:.86;bottom:23rem;right:21rem}
+.art img{position:absolute;bottom:0;width:auto;max-width:none}
+.art .fr{filter:drop-shadow(0 1.4rem 2.2rem rgba(3,10,40,.32))}
+.art .ro{filter:drop-shadow(-.6rem 1rem 1.6rem rgba(3,10,40,.5))}
+.art .wa{filter:drop-shadow(-1.4rem 1.4rem 2.4rem rgba(3,10,40,.5))}
+.art .fr{left:calc(11.6rem*var(--k));height:calc(54rem*var(--k));z-index:1}
+.art .ro{left:0;height:calc(20rem*var(--k));z-index:2}
+.art .wa{left:calc(29rem*var(--k));height:calc(30.7rem*var(--k));z-index:3}
+.notch-link{position:absolute;right:9rem;top:70.2rem;z-index:3;display:flex;align-items:center;gap:2.4rem;color:var(--navy);text-align:right}
+.notch-link strong{display:block;font-size:2.6rem;font-weight:700;line-height:1.3}
+.notch-link span{display:block;margin-top:.6rem;font-size:2rem;font-weight:500;color:var(--mute)}
+.notch-link span em{font-style:normal;color:var(--blue);font-weight:700}
+.notch-link .go{flex:none;width:6.4rem;height:6.4rem;border-radius:50%;background:var(--navy);color:var(--white);display:flex;align-items:center;justify-content:center;transition:transform .3s}
+.notch-link:hover .go{transform:rotate(45deg)}
+.notch-link .go svg{width:2.8rem;height:2.8rem}
+
+/* ───── ② market ───── */
+.mk-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.6rem}
+.mk{position:relative;overflow:hidden;border-radius:4rem;padding:4rem;min-height:46rem;display:flex;flex-direction:column;background:var(--paper)}
+.mk.t{background:var(--tint)}
+.mk.n{color:var(--white);background:var(--blue)}
+.mk .k{font-size:1.4rem;font-weight:700;letter-spacing:.06rem;color:var(--blue)}
+.mk.n .k{color:rgba(255,255,255,.75)}
+.mk h3{margin-top:1rem;font-size:2.6rem;font-weight:700;line-height:1.3;letter-spacing:-.06rem}
+.mk .u{margin-top:.6rem;font-size:1.4rem;color:var(--mute2)}
+.mk.n .u{color:rgba(255,255,255,.65)}
+/* 막대 */
+.bars{margin-top:auto;display:flex;align-items:flex-end;justify-content:space-between;gap:1rem;height:25rem;padding-top:2rem}
+.bars li{flex:1;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;height:100%;text-align:center}
+.bars .v{font-size:1.25rem;font-weight:600;line-height:1.3;color:var(--mute);margin-bottom:.8rem}
+.bars .b{width:100%;max-width:5.4rem;border-radius:1.4rem 1.4rem .6rem .6rem;background:rgba(7,26,82,.16)}
+.bars .y{margin-top:1rem;font-size:1.5rem;font-weight:600;color:var(--mute)}
+.bars li.hi .v{color:var(--blue);font-weight:800;font-size:1.5rem}
+.bars li.hi .b{background:var(--blue)}
+.bars li.hi .y{color:var(--navy);font-weight:800}
+/* 꺾은선 */
+.line{margin-top:auto;padding-top:2rem}
+.line svg{width:100%;height:auto;overflow:visible}
+.line text{font-family:inherit;letter-spacing:-.02em}
+/* 가로 막대 */
+.hbars{margin-top:auto;display:grid;gap:2rem;padding-top:2rem}
+.hbars li p{font-size:1.5rem;font-weight:500;line-height:1.35;margin-bottom:.8rem;color:rgba(255,255,255,.9)}
+.hbars .tr{display:flex;align-items:center;gap:1.2rem}
+.hbars .bar{height:1.2rem;border-radius:99rem;background:var(--white);opacity:.92}
+.hbars li:not(:first-child) .bar{opacity:.55}
+.hbars b{font-size:1.7rem;font-weight:700;white-space:nowrap}
+
+/* ───── ③ booster ───── */
+.booster-list{display:grid;grid-template-columns:3.16fr 1fr 1fr 1fr;height:48rem;gap:1.6rem;transition:grid-template-columns .6s cubic-bezier(.22,1,.36,1)}
+.booster-card{position:relative;overflow:hidden;min-width:20rem;border-radius:4rem;cursor:pointer;background:var(--paper);transition:background .3s;container-type:inline-size}
+.booster-card.c1{background:var(--tint)}
+.booster-card.c4{background:var(--blue);color:var(--white)}
+.booster-card[data-active='false']:hover{background:#e2e9fb}
+.booster-card.c4[data-active='false']:hover{background:var(--blue)}
+.booster-card>article{position:relative;width:100%;height:100%;display:flex;flex-direction:column;padding:4rem 3rem}
+.booster-card[data-active='true']>article{padding:4rem}
+.booster-card .no{font-size:1.4rem;font-weight:700;letter-spacing:.06rem;color:var(--blue)}
+.booster-card.c4 .no{color:rgba(255,255,255,.75)}
+.booster-card .badge{position:absolute;right:4rem;top:3.6rem;padding:.7rem 1.4rem;border-radius:4rem;background:var(--white);color:var(--navy);font-size:1.4rem;font-weight:600;line-height:2rem;white-space:nowrap;opacity:0;transition:opacity .3s}
+.booster-card .title{margin-top:1.2rem;font-weight:700;letter-spacing:-.05rem;line-height:1.3}
+.booster-card .t-long{display:none;font-size:3rem;max-width:42rem}
+.booster-card .t-short{display:block;font-size:9.4cqw;white-space:nowrap;letter-spacing:-.045em;line-height:1.35}
+.booster-card .more{margin-top:auto;width:4.4rem;height:4.4rem;border-radius:50%;background:var(--white);display:flex;align-items:center;justify-content:center;color:var(--navy);transition:transform .3s}
+.booster-card.c4 .more{background:rgba(255,255,255,.18);color:var(--white)}
+.booster-card[data-active='false']:hover .more{transform:rotate(90deg)}
+.booster-card .more svg{width:2rem;height:2rem}
+.booster-card .body{display:none;margin-top:auto}
+.booster-card[data-active='true'] .t-long{display:block}
+.booster-card[data-active='true'] .t-short,.booster-card[data-active='true'] .more{display:none}
+.booster-card[data-active='true'] .badge{opacity:1}
+.booster-card[data-active='true'] .body{display:block;animation:rise .6s .15s both cubic-bezier(.22,1,.36,1)}
+@keyframes rise{from{opacity:0;transform:translateY(1.2rem)}to{opacity:1;transform:none}}
+.booster-card .lead{margin-bottom:2rem;font-size:1.6rem;line-height:1.6;color:var(--mute);max-width:56rem}
+.booster-card.c4 .lead{color:rgba(255,255,255,.82)}
+.mini-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.mini{display:flex;align-items:center;gap:1.4rem;padding:1.8rem 2rem;border-radius:2rem;background:var(--white);font-size:1.6rem;font-weight:600;line-height:1.35}
+.mini svg{flex:none;width:2.4rem;height:2.4rem;color:var(--blue)}
+.mini.span2{grid-column:1/3}
+.c-list li{position:relative;padding:1.3rem 0 1.3rem 2.6rem;font-size:1.7rem;font-weight:500;border-top:1px solid rgba(255,255,255,.18)}
+.c-list li small{display:block;margin-top:.2rem;font-size:1.4rem;font-weight:400;opacity:.72}
+.c-list li::before{content:"+";position:absolute;left:0;top:1.1rem;font-size:2.2rem;font-weight:700;color:var(--white)}
+.scroll-indicator{position:relative;width:100%;height:.6rem;background:var(--paper);border-radius:99rem;overflow:hidden;margin-top:3.6rem}
+.scroll-thumb{position:absolute;height:100%;width:25%;background:var(--navy);transition:left .3s ease-in-out;border-radius:99rem;left:0}
+.mk-box{margin-top:1.6rem;display:flex;align-items:center;justify-content:space-between;gap:4rem;padding:4rem 4.8rem;border-radius:4rem;background:var(--paper)}
+.mk-box h3{font-size:2.6rem;font-weight:700;line-height:1.3;letter-spacing:-.06rem}
+.mk-box p.s{margin-top:.8rem;font-size:1.6rem;color:var(--mute);line-height:1.6}
+.chips{display:flex;flex-wrap:wrap;gap:.8rem;justify-content:flex-end;max-width:64rem}
+.chips li{padding:1.1rem 2rem;border-radius:5rem;background:var(--white);font-size:1.5rem;font-weight:600}
+
+/* ───── ④ revenue ───── */
+.rev-grid{display:grid;grid-template-columns:34rem minmax(0,1fr);gap:1.6rem}
+.rev-l{position:relative;overflow:hidden;border-radius:4rem;padding:4.4rem;color:var(--white);background:var(--blue);display:flex;flex-direction:column}
+.rev-l .k{font-size:1.4rem;font-weight:700;letter-spacing:.06rem;opacity:.75}
+.rev-l h3{margin-top:1.2rem;font-size:2.8rem;font-weight:700;line-height:1.3;letter-spacing:-.06rem}
+.rev-l ul{margin-top:auto;padding-top:3rem}
+.rev-l li{display:flex;justify-content:space-between;align-items:center;padding:1.6rem 0;border-top:1px solid rgba(255,255,255,.2);font-size:1.7rem;font-weight:500}
+.rev-l li b{font-size:1.8rem;font-weight:700}
+.cases{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.6rem}
+.case{border-radius:3.2rem;background:var(--paper);padding:1.6rem 1.6rem 2.6rem;overflow:hidden}
+.case .ph{aspect-ratio:380/290;border-radius:2.2rem;overflow:hidden;background:var(--white);margin-bottom:2rem}
+.case .ph img{width:100%;height:100%;object-fit:cover;object-position:top}
+.case .l{padding:0 1rem;font-size:1.4rem;color:var(--mute)}
+.case .a{padding:0 1rem;margin-top:.2rem;font-size:3rem;font-weight:700;letter-spacing:-.07rem;color:var(--blue)}
+.case .a small{font-size:1.8rem;font-weight:600;margin-left:.2rem}
+.note{margin-top:2.4rem;font-size:1.4rem;color:var(--mute);line-height:1.6}
+
+/* ───── ⑤ products + partners ───── */
+.prod-track-wrap{overflow-x:auto;scrollbar-width:none;scroll-snap-type:x proximity;cursor:grab;user-select:none;-webkit-user-select:none;overscroll-behavior-x:contain}
+.prod-track-wrap::-webkit-scrollbar{display:none}
+.prod-track-wrap.drag{cursor:grabbing;scroll-snap-type:none}
+.product-wrap{display:flex;gap:1.2rem}
+.product-wrap li{flex:0 0 16rem;height:20rem;scroll-snap-align:start;display:flex;flex-direction:column;align-items:center;border:1px solid var(--line);border-radius:2.4rem;background:var(--white);padding:2.2rem 1.2rem 1.8rem}
+.product-wrap .pi{flex:1;width:100%;display:flex;align-items:center;justify-content:center;min-height:0}
+.product-wrap img{max-width:62%;max-height:100%;width:auto;height:auto;-webkit-user-drag:none;pointer-events:none}
+.product-wrap span{margin-top:1.2rem;font-size:1.4rem;font-weight:500;color:var(--mute);letter-spacing:-.02em;white-space:nowrap}
+.scroll-indicator.slim{margin-top:3.2rem;height:.8rem;cursor:pointer;overflow:visible;background:var(--paper)}
+.scroll-indicator.slim::before{content:"";position:absolute;left:0;right:0;top:-1.2rem;bottom:-1.2rem}
+.scroll-indicator.slim .scroll-thumb{transition:none;cursor:grab;height:100%}
+.sub-label{margin:9rem 0 2.4rem;font-size:2.8rem;font-weight:700;display:flex;align-items:baseline;gap:1.4rem}
+.sub-label small{font-size:1.6rem;font-weight:400;color:var(--mute)}
+.logo-grid{display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:1.2rem}
+.logo-grid li{aspect-ratio:280/120;display:flex;align-items:center;justify-content:center;border:1px solid var(--line);border-radius:2rem;background:var(--white);transition:border-color .25s,transform .25s}
+.logo-grid li:hover{border-color:var(--blue);transform:translateY(-.4rem)}
+.logo-grid img{width:var(--w,60%);height:auto}
+
+/* ───── ⑥ cost + recommend ───── */
+.cost-grid{display:grid;grid-template-columns:1fr 1.25fr;gap:1.6rem}
+.cost-l{position:relative;overflow:hidden;border-radius:4rem;padding:5.2rem;color:var(--white);background:var(--blue);display:flex;flex-direction:column;min-height:50rem}
+.cost-l .k{font-size:1.4rem;font-weight:700;letter-spacing:.06rem;opacity:.75}
+.cost-l h3{margin-top:2rem;font-size:5rem;font-weight:300;line-height:1.3;letter-spacing:-.12rem}
+.cost-l h3 strong{font-weight:700}
+.cost-l p.s{margin-top:auto;font-size:1.8rem;line-height:1.7;opacity:.88;max-width:40rem}
+.cost-r{border-radius:4rem;background:var(--paper);padding:2rem 4.4rem;display:flex;flex-direction:column;justify-content:center}
+.cost-r .row{display:flex;align-items:center;justify-content:space-between;padding:2.6rem 0;border-top:1px solid var(--line);font-size:2rem;font-weight:600}
+.cost-r .row:first-child{border-top:0}
+.cost-r .row span{font-size:1.9rem;font-weight:500;color:var(--mute)}
+.cost-r .row.fee{align-items:flex-start;flex-direction:column;gap:1.6rem}
+.fee-opts{display:grid;grid-template-columns:1fr 1fr;gap:1rem;width:100%}
+.fee-opts div{padding:2rem 2.4rem;border-radius:2rem;background:var(--white)}
+.fee-opts div.hi{background:var(--blue);color:var(--white)}
+.fee-opts small{display:block;font-size:1.4rem;font-weight:500;opacity:.7}
+.fee-opts b{display:block;margin-top:.4rem;font-size:2.8rem;font-weight:700;letter-spacing:-.07rem}
+.fee-opts em{display:block;margin-top:.2rem;font-style:normal;font-size:1.3rem;opacity:.7}
+.rec-grid{margin-top:1.6rem;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.6rem}
+.rec{border-radius:3.2rem;background:var(--paper);padding:3.6rem 4rem;min-height:19rem;display:flex;flex-direction:column;justify-content:space-between}
+.rec .n{font-size:1.4rem;font-weight:700;letter-spacing:.06rem;color:var(--blue)}
+.rec p{font-size:2.2rem;font-weight:700;line-height:1.4;letter-spacing:-.05rem}
+.rec p span{font-weight:400;color:var(--mute)}
+
+/* ───── ⑦ info ───── */
+.information-wrap{display:flex;align-items:stretch;gap:1.6rem}
+.info-card{padding:4rem;position:relative;border-radius:3.2rem;flex:1}
+.notice-info{background:var(--paper)}
+.news-info{border:1px solid var(--line)}
+.info-card .title{font-size:2rem;font-weight:700;line-height:1.3}
+.list{margin-top:3.2rem;display:flex;flex-direction:column;gap:2.4rem}
+.list li{display:flex;align-items:center;justify-content:space-between;width:100%}
+.faq-q{display:flex;align-items:center;justify-content:space-between;width:100%;text-align:left;font-size:1.7rem;font-weight:500}
+.faq-q::after{content:"";flex:none;width:.9rem;height:.9rem;border-right:.2rem solid var(--mute);border-bottom:.2rem solid var(--mute);transform:rotate(45deg) translateY(-.2rem);transition:transform .25s;margin-left:2rem}
+.faq-i.open .faq-q::after{transform:rotate(-135deg) translate(-.2rem,-.2rem)}
+.faq-a{display:none;margin-top:1.2rem;font-size:1.5rem;line-height:1.7;color:var(--mute);padding-right:3.2rem}
+.faq-i.open .faq-a{display:block}
+.faq-i{display:block !important}
+.step-list li{gap:1.6rem;justify-content:flex-start}
+.step-list em{flex:none;font-style:normal;width:3.6rem;height:3.6rem;border-radius:50%;background:var(--navy);color:var(--white);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1.6rem}
+.step-list b{display:block;font-size:1.8rem;font-weight:700}
+.step-list span{display:block;font-size:1.5rem;color:var(--mute);margin-top:.2rem}
+
+/* ───── ⑧ apply ───── */
+.apply-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.6rem}
+.apply-l{border-radius:4rem;color:var(--white);padding:5.2rem;position:relative;overflow:hidden;min-height:58rem;display:flex;flex-direction:column;background:var(--navy) url(assets/wave.jpg) 40% 50%/cover}
+.apply-l::after{content:"";position:absolute;inset:0;background:rgba(7,26,82,.26);pointer-events:none}
+.apply-l>*{position:relative;z-index:1}
+.apply-l .k{font-size:1.4rem;font-weight:700;letter-spacing:.2rem;opacity:.75}
+.apply-l h3{margin-top:2rem;font-size:5.2rem;font-weight:300;line-height:1.3;letter-spacing:-.1rem}
+.apply-l h3 strong{font-weight:700}
+.apply-l .perks{margin-top:3.2rem;display:grid}
+.apply-l .perks li{display:flex;align-items:center;gap:1.4rem;padding:1.5rem 0;border-top:1px solid rgba(255,255,255,.2);font-size:1.8rem;font-weight:500}
+.apply-l .perks li:last-child{border-bottom:1px solid rgba(255,255,255,.2)}
+.apply-l .perks svg{flex:none;width:2.4rem;height:2.4rem}
+.apply-l .tel{margin-top:auto;padding-top:3.6rem;font-size:1.5rem;opacity:.85}
+.apply-l .tel b{display:block;margin-top:.4rem;font-size:3.2rem;font-weight:700;letter-spacing:-.06rem}
+.apply-r{border-radius:4rem;background:var(--paper);padding:5.6rem}
+.apply-r h4{font-size:2.4rem;font-weight:700;margin-bottom:3.2rem}
+.fld{margin-bottom:2rem}
+.fld>label{display:block;font-size:1.5rem;font-weight:600;color:var(--mute);margin-bottom:.9rem}
+.custom-input{width:100%;height:5.2rem;padding:.8rem 2rem;border-radius:1.2rem;border:1px solid transparent;font:inherit;font-size:1.6rem;font-weight:500;color:var(--navy);background:var(--white);outline:0;transition:border-color .2s,box-shadow .2s}
+.custom-input::placeholder{color:var(--mute2);font-weight:400}
+.custom-input:focus{border-color:var(--blue);box-shadow:0 0 0 .4rem rgba(47,91,255,.14)}
+.fld.bad .custom-input{border-color:var(--navy)}
+.fld .err{display:none;margin-top:.6rem;font-size:1.3rem;color:var(--blue)}
+.fld.bad .err{display:block}
+.agree{display:flex;gap:1rem;align-items:flex-start;font-size:1.4rem;color:var(--mute);line-height:1.55;margin:2.4rem 0}
+.agree input{margin-top:.3rem;width:1.8rem;height:1.8rem;accent-color:var(--navy);flex:none}
+.agree.bad{color:var(--blue)}
+.btn.point{display:flex;align-items:center;justify-content:center;width:100%;height:6rem;border-radius:1.2rem;font-size:2rem;font-weight:700;background:var(--blue);color:var(--white);transition:opacity .2s}
+.btn.point:hover{opacity:.85}
+.done{display:none;text-align:center;padding:6rem 0}
+.done .ck{width:8rem;height:8rem;border-radius:50%;background:var(--blue);color:var(--white);display:flex;align-items:center;justify-content:center;margin:0 auto 2.4rem}
+.done .ck svg{width:3.6rem;height:3.6rem}
+.done b{display:block;font-size:3.2rem;font-weight:700;margin-bottom:1.2rem}
+.done p{font-size:1.6rem;color:var(--mute);line-height:1.7}
+.apply-r.sent .fields{display:none}.apply-r.sent .done{display:block}
+
+/* ───── footer / floating ───── */
+footer{background:var(--navy);color:rgba(255,255,255,.6);padding:6rem 0 12rem;font-size:1.4rem}
+footer .in{max-width:128rem;margin:0 auto;padding:0 1.6rem}
+footer .logo{color:var(--white)}
+footer .logo small{color:rgba(255,255,255,.55)}
+footer .f-top{display:flex;align-items:center;justify-content:space-between;gap:3rem;padding-bottom:3.2rem;border-bottom:1px solid rgba(255,255,255,.12)}
+footer .f-links{display:flex;align-items:center;gap:1.6rem;font-size:1.5rem}
+footer .f-links a{color:rgba(255,255,255,.85);font-weight:600;transition:color .2s}
+footer .f-links a:hover{color:var(--white);text-decoration:underline;text-underline-offset:.4rem}
+footer .f-links i{width:1px;height:1.2rem;background:rgba(255,255,255,.3)}
+footer .f-info{margin-top:3.2rem;display:grid;gap:.8rem;font-size:1.5rem;line-height:1.6}
+footer .f-info p{display:flex;flex-wrap:wrap;gap:.4rem 3rem}
+footer .f-info b{font-weight:600;color:rgba(255,255,255,.85)}
+footer .f-info a{color:inherit}
+footer .copy{margin-top:3.6rem;font-size:1.4rem;color:rgba(255,255,255,.55)}
+footer .vat{margin-top:1rem;font-size:1.3rem;color:rgba(255,255,255,.45)}
+#apply{margin-bottom:8rem}
+.floating-banner{position:fixed;right:5rem;bottom:5rem;z-index:90;display:flex;align-items:center;gap:1.2rem;height:7.2rem;padding:0 3rem 0 3.4rem;border-radius:5rem;background:var(--navy);color:var(--white);font-size:1.8rem;font-weight:700;transform:translateY(16rem);transition:transform .5s cubic-bezier(.2,.7,.2,1),opacity .2s}
+.floating-banner.show{transform:none}
+.floating-banner:hover{opacity:.85}
+.floating-banner svg{width:2.4rem;height:2.4rem}
+
+/* ───── responsive ───── */
+@media (max-width:1280px){
+  :root{--pad:4rem}
+  .main-inner section:not(.sec-key-content){padding-inline:1.6rem}
+  .title-wrap .title{font-size:3.4rem}
+  .apply-grid,.cost-grid,.rev-grid{grid-template-columns:1fr}
+  .mk-grid{grid-template-columns:1fr 1fr}
+  .logo-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .gnb{margin-left:2rem}.gnb a{padding:2rem 1.2rem;font-size:1.6rem}
+  .rec-grid{grid-template-columns:1fr 1fr}
+}
+@media (max-width:900px){
+  :root{--pad:2rem}
+  .header-inner{padding:1.2rem 2rem;height:7rem}
+  .gnb{display:none}
+  .logo b{font-size:2.6rem}
+  .util{display:none}
+  .pill{height:4rem;padding:0 1.6rem;font-size:1.4rem}.pill svg{display:none}
+  .marketing-box{aspect-ratio:auto;height:60rem}
+  .stage{position:absolute;width:100%;height:100%;zoom:1}
+  .hero-shape{clip-path:none;border-radius:2.4rem}
+  .banner-contents{left:2.8rem;right:2.8rem;top:6rem}
+  .banner-contents .desc{font-size:1.8rem}.banner-contents .tit{font-size:3.6rem;letter-spacing:-.07rem}
+  .banner-contents .btn-wrap{flex-wrap:wrap;margin-top:2.4rem}
+  .banner-contents .btn{padding:0 2rem;height:4.6rem;font-size:1.6rem}
+  .hero-shape .art{--k:.46;right:50%;transform:translateX(50%);bottom:2.4rem}
+  .notch-link{display:none}
+  .mk-grid,.rec-grid,.information-wrap{grid-template-columns:minmax(0,1fr);flex-direction:column}
+  .mk{min-height:0;padding:3.2rem}
+  .booster-list{grid-template-columns:1fr !important;height:auto}
+  .booster-card[data-active='false'] .t-short{font-size:2rem;white-space:normal}
+  .booster-card[data-active='false'] .more{margin-top:1.2rem;width:3.6rem;height:3.6rem}
+  .booster-card .badge{display:none}
+  .booster-card[data-active='true'] .body{margin-top:2.4rem}
+  .mini-grid{grid-template-columns:1fr}.mini.span2{grid-column:auto}
+  .mk-box{flex-direction:column;align-items:flex-start;padding:3.2rem}.chips{justify-content:flex-start}
+  .title-wrap{flex-direction:column;align-items:flex-start;gap:2rem;margin-bottom:3.2rem}
+  .title-wrap .lead{font-size:1.6rem}
+  .cases{grid-template-columns:1fr 1fr}
+  .rev-l,.cost-l,.apply-l,.apply-r{padding:3.2rem;min-height:0}
+  .cost-l h3,.apply-l h3{font-size:3.6rem}
+  .cost-r{padding:1.2rem 2.4rem}
+  .fee-opts{grid-template-columns:1fr}
+  .logo-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .prod-track-wrap{margin:0 -1.6rem;padding:0 1.6rem}
+  footer .in{padding:0 2rem}footer .f-top{flex-direction:column;align-items:flex-start}footer .f-info p{flex-direction:column;gap:.4rem}footer{padding:4.4rem 0 11rem}
+  .floating-banner{right:2rem;bottom:2rem;height:6rem;font-size:1.6rem;padding:0 2.4rem}
+  section,.sec-key-content{margin-bottom:10rem}
+}
+</style>
+</head>
+<body>
+<div class="util"><span>전자제품 렌탈 온라인 대리점</span><span>가맹문의 <a href="tel:01072893803">010-7289-3803</a></span></div>
+
+<header id="header">
+  <div class="header-inner">
+    <h1><a class="logo" href="#top" aria-label="헬로벨렌탈 홈"><b>HelloBell</b><small>RENTAL</small></a></h1>
+    <nav class="gnb" aria-label="주요 메뉴"><ul>
+      <li><a href="#s-market">렌탈 시장</a></li>
+      <li><a href="#s-why">본사 지원</a></li>
+      <li><a href="#s-revenue">수익 사례</a></li>
+      <li><a href="#s-prod">제품·파트너</a></li>
+      <li><a href="#s-cost">창업비용</a></li>
+    </ul></nav>
+    <div class="h-right"><a class="pill" href="#apply">창업 상담 신청
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M8 7h9v9"/></svg></a></div>
+  </div>
+</header>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
+  <clipPath id="heroClip" clipPathUnits="objectBoundingBox"><path transform="scale(0.000543478 0.001246883)" d="M56,0 H1784 A56,56 0 0 1 1840,56 V600 A56,56 0 0 1 1784,656 H1340 C1298,656 1272,670 1252,700 L1196,778 C1182,794 1164,802 1142,802 H56 A56,56 0 0 1 0,746 V56 A56,56 0 0 1 56,0 Z"/></clipPath>
+</defs></svg>
+<main id="top">
+<div class="main-inner">
+
+<!-- ① 메인 비주얼 -->
+<section class="sec-key-content">
+  <div class="marketing-box" id="mbox">
+    <div class="stage" id="stage">
+      <div class="hero-shape">
+        <div class="banner-contents">
+          <p class="desc">소유의 시대에서 렌탈의 시대로</p>
+          <p class="tit">월 10만원으로 시작하는<br>온라인 렌탈 대리점</p>
+          <div class="btn-wrap">
+            <a class="btn d" href="#apply">창업 상담 신청<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M8 7h9v9"/></svg></a>
+            <a class="btn w" href="#s-cost">창업비용 보기<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M8 7h9v9"/></svg></a>
+          </div>
+        </div>
+        <div class="art">
+          <img class="fr" src="assets/fridge.png" alt="냉장고">
+          <img class="ro" src="assets/robot.png" alt="로봇청소기">
+          <img class="wa" src="assets/washer.png" alt="세탁기">
+        </div>
+      </div>
+      <a class="notch-link" href="#apply">
+        <div><strong>빠른 창업상담</strong><span><em>성함과 연락처만</em> 남겨 주세요</span></div>
+        <i class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M8 7h9v9"/></svg></i>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ② 렌탈 시장 -->
+<section id="s-market">
+  <div class="title-wrap reveal"><div><h2 class="title">렌탈로 눈을 돌리는 <strong>시대입니다</strong></h2><p class="lead">빠르게 변화하는 시대, 소비자들의 선택은 렌탈 서비스. 부담이 큰 구매보다 부담이 적은 렌탈을 찾는 1인 가구가 늘고 있어요.</p></div></div>
+  <div class="mk-grid">
+    <div class="mk reveal">
+      <p class="k">MARKET</p>
+      <h3>급성장하는 렌탈시장,<br>2025년 100조 돌파 예상</h3>
+      <p class="u">국내 렌탈시장 규모 추이 및 전망 · 단위 : 원</p>
+      <ul class="bars" id="bars1"></ul>
+    </div>
+    <div class="mk t reveal">
+      <p class="k">SINGLE HOUSEHOLD</p>
+      <h3>1인 가구의 증가로<br>높아진 렌탈 수요</h3>
+      <p class="u">전체 가구 중 1인 가구의 비율 · 단위 : 년</p>
+      <div class="line">
+        <svg viewBox="0 0 400 210" role="img" aria-label="1인 가구 비율 2020년 30.0%에서 2040년 36.2%">
+          <line x1="14" y1="172" x2="386" y2="172" stroke="rgba(7,26,82,.18)"/>
+          <g id="lines"></g>
+        </svg>
+      </div>
+    </div>
+    <div class="mk n reveal">
+      <p class="k">WHY RENTAL</p>
+      <h3>렌탈을 찾는 이유</h3>
+      <p class="u" style="opacity:.7">소비자가 렌탈을 선택하는 이유 · 단위 : %</p>
+      <ul class="hbars" id="hbars"></ul>
+    </div>
+  </div>
+</section>
+
+<!-- ③ 왜 헬로벨렌탈인가 -->
+<section class="sec-study" id="s-why">
+  <div class="title-wrap reveal">
+    <div><h2 class="title">다른 렌탈 창업과는 <strong>이렇게 다릅니다</strong></h2><p class="lead">높은 임대료의 큰 매장 없이 온라인으로, 삼성·LG·SK 등 다양한 브랜드의 제품을 렌탈로 판매합니다.</p></div>
+    <div class="btn-wrap">
+      <button class="btn-round" id="bprev" aria-label="이전"><svg viewBox="0 0 24 24" fill="none" stroke="#071a52" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg></button>
+      <button class="btn-round" id="bnext" aria-label="다음"><svg viewBox="0 0 24 24" fill="none" stroke="#071a52" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></button>
+    </div>
+  </div>
+  <div class="booster-wrap reveal">
+    <ul class="booster-list" id="booster">
+
+      <li class="booster-card c1" data-active="true"><article>
+        <span class="no">01</span><span class="badge">소자본 · 무점포</span>
+        <h3 class="title"><span class="t-long">월 10만원으로 시작하는<br>무점포 소자본 창업</span><span class="t-short">월 10만원<br>무점포 창업</span></h3>
+        <div class="body">
+          <div class="mini-grid">
+            <div class="mini"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>무점포 · 초소자본</div>
+            <div class="mini"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>최고 수준의 렌탈 수수료</div>
+            <div class="mini"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>365일 24시간 판매</div>
+            <div class="mini"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>투잡 · 부업 가능</div>
+          </div>
+        </div>
+        <span class="more"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
+      </article></li>
+
+      <li class="booster-card c2" data-active="false"><article>
+        <span class="no">02</span><span class="badge">본사 지원</span>
+        <h3 class="title"><span class="t-long">상담부터 계약까지<br>본사가 직접 지원합니다</span><span class="t-short">상담부터 계약<br>본사가</span></h3>
+        <div class="body">
+          <p class="lead">운영 부담은 줄이고, 계약 성과는 극대화합니다. 직장인도 주부도 쉽게 운영할 수 있어요.</p>
+          <div class="mini-grid">
+            <div class="mini"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>업계 최초 상담대행 지원</div>
+            <div class="mini"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>고객센터 100% 본사 지원</div>
+            <div class="mini span2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>본사의 체계적인 교육</div>
+          </div>
+        </div>
+        <span class="more"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
+      </article></li>
+
+      <li class="booster-card c3" data-active="false"><article>
+        <span class="no">03</span><span class="badge">나만의 홈페이지</span>
+        <h3 class="title"><span class="t-long">나만의 브랜드를 살린<br>독립 홈페이지를 드립니다</span><span class="t-short">나만의<br>홈페이지</span></h3>
+        <div class="body">
+          <p class="lead">독립적인 렌탈 홈페이지 제작부터 운영까지 지원합니다. 언제 어디서든 내 이름으로 판매하세요.</p>
+          <div class="mini-grid">
+            <div class="mini"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>홈페이지 제작 · 운영 지원</div>
+            <div class="mini"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>언제든 어디서든 OK</div>
+          </div>
+        </div>
+        <span class="more"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
+      </article></li>
+
+      <li class="booster-card c4" data-active="false"><article>
+        <span class="no">04</span><span class="badge">핵심 경쟁력</span>
+        <h3 class="title"><span class="t-long">오직 헬로벨렌탈에서만<br>만날 수 있는 라인업</span><span class="t-short">핵심<br>경쟁력</span></h3>
+        <div class="body">
+          <ul class="c-list">
+            <li>레스토닉 침대 프리미엄 라인업<small>편안한 휴식을 위한 레스토닉 침대 컬렉션</small></li>
+            <li>네스프레소 커피머신 렌탈 개시<small>국내 네스프레소 렌탈사업권 정식 계약</small></li>
+            <li>인터넷 · IPTV 개통 가능<small>국내 렌탈몰 최초</small></li>
+          </ul>
+        </div>
+        <span class="more"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
+      </article></li>
+    </ul>
+  </div>
+  <div class="mk-box reveal">
+    <div><h3>이커머스 마케팅 지원 플랜</h3><p class="s">온라인 마케팅 전문가들이 성공적인 마케팅 방향성을 제시해 드립니다.</p></div>
+    <ul class="chips"><li>네이버 검색 광고</li><li>인스타그램 · 페이스북</li><li>구글 · 카카오 광고</li><li>영상 제작 · 유튜브 광고</li><li>바이럴마케팅</li><li>배너 광고</li><li>블로그 운영</li><li>체험단 관리</li></ul>
+  </div>
+</section>
+
+<!-- ④ 수익 사례 -->
+<section id="s-revenue">
+  <div class="title-wrap reveal"><div><h2 class="title">렌탈 판매하면 <strong>얼마나 벌까?</strong></h2><p class="lead">나만의 브랜드를 살린 독립적인 홈페이지로 판매한 파트너들의 월 수익 사례입니다.</p></div></div>
+  <div class="rev-grid">
+    <div class="rev-l reveal">
+      <p class="k">COMMISSION</p>
+      <h3>제품별<br>판매 수수료 예시</h3>
+      <ul>
+        <li>정수기<b>렌탈료 8배</b></li>
+        <li>비데<b>렌탈료 8배</b></li>
+        <li>공기청정기<b>렌탈료 8배</b></li>
+        <li>인터넷<b>80만원</b></li>
+        <li>안마의자<b>80만원</b></li>
+      </ul>
+    </div>
+    <div class="cases">
+      <div class="case reveal"><div class="ph"><img src="assets/cases/c1.png" alt="파트너 홈페이지" loading="lazy"></div><p class="l">월 수익</p><p class="a">1,461<small>만원</small></p></div>
+      <div class="case reveal"><div class="ph"><img src="assets/cases/c2.png" alt="파트너 홈페이지" loading="lazy"></div><p class="l">월 수익</p><p class="a">1,367<small>만원</small></p></div>
+      <div class="case reveal"><div class="ph"><img src="assets/cases/c3.png" alt="파트너 홈페이지" loading="lazy"></div><p class="l">월 수익</p><p class="a">1,320<small>만원</small></p></div>
+      <div class="case reveal"><div class="ph"><img src="assets/cases/c4.png" alt="파트너 홈페이지" loading="lazy"></div><p class="l">월 수익</p><p class="a">1,046<small>만원</small></p></div>
+      <div class="case reveal"><div class="ph"><img src="assets/cases/c5.png" alt="파트너 홈페이지" loading="lazy"></div><p class="l">월 수익</p><p class="a">1,006<small>만원</small></p></div>
+      <div class="case reveal"><div class="ph"><img src="assets/cases/c6.png" alt="파트너 홈페이지" loading="lazy"></div><p class="l">월 수익</p><p class="a">938<small>만원</small></p></div>
+    </div>
+  </div>
+  <p class="note">월 수익은 파트너별 사례이며 판매 실적에 따라 달라질 수 있습니다.</p>
+</section>
+
+<!-- ⑤ 제품 · 파트너 -->
+<section class="sec-prod" id="s-prod">
+  <div class="title-wrap reveal">
+    <div><h2 class="title">4만 가지 <strong>렌탈 가능 제품</strong></h2><p class="lead">생활가전부터 침대·정수기, 인터넷·IPTV까지. 내 홈페이지 하나로 다양한 제품을 판매할 수 있어요.</p></div>
+    <div class="btn-wrap">
+      <button class="btn-round" id="pprev" aria-label="이전"><svg viewBox="0 0 24 24" fill="none" stroke="#071a52" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg></button>
+      <button class="btn-round" id="pnext" aria-label="다음"><svg viewBox="0 0 24 24" fill="none" stroke="#071a52" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></button>
+    </div>
+  </div>
+  <div class="prod-track-wrap reveal" id="ptrack"><ul class="product-wrap" id="prodlist"></ul></div>
+  <div class="scroll-indicator slim" id="pbar"><div class="scroll-thumb" id="pthumb"></div></div>
+
+  <p class="sub-label reveal">헬로벨렌탈 파트너 <small>다양한 브랜드와 함께합니다</small></p>
+  <ul class="logo-grid" id="logos"></ul>
+</section>
+
+<!-- ⑥ 창업비용 · 추천 -->
+<section id="s-cost">
+  <div class="title-wrap reveal"><div><h2 class="title">창업비용, <strong>이만큼이면 됩니다</strong></h2><p class="lead">헬로벨렌탈만의 시스템으로 저렴한 창업 비용, 리스크 걱정 없이 렌탈 창업에 도전할 수 있습니다.</p></div></div>
+  <div class="cost-grid">
+    <div class="cost-l reveal">
+      <p class="k">START COST</p>
+      <h3>가맹비·교육비<br>보증금 <strong>없음</strong></h3>
+      <p class="s">나만의 홈페이지 분양대금만으로 시작합니다. 월 운영비도 없어요.</p>
+    </div>
+    <div class="cost-r reveal">
+      <div class="row">가맹비<span>없음</span></div>
+      <div class="row">교육비<span>없음</span></div>
+      <div class="row">보증금<span>없음</span></div>
+      <div class="row fee">홈페이지 분양대금
+        <div class="fee-opts">
+          <div class="hi"><small>분납</small><b>월 10만원</b><em>월납 24개월</em></div>
+          <div><small>일시불</small><b>200만원</b></div>
+        </div>
+      </div>
+      <div class="row">월 운영비<span>없음</span></div>
+    </div>
+  </div>
+  <div class="title-wrap reveal" style="margin:9rem 0 3.2rem"><div><h2 class="title">이런 분께 <strong>추천합니다</strong></h2><p class="lead">헬로벨렌탈과 동반성장 할 분을 찾습니다.</p></div></div>
+  <div class="rec-grid">
+    <div class="rec reveal"><span class="n">01</span><p>리스크 적게<br>소자본 창업을 하고 싶은 분</p></div>
+    <div class="rec reveal"><span class="n">02</span><p>투잡으로 틈틈이<br>할 일을 찾고 있는 분</p></div>
+    <div class="rec reveal"><span class="n">03</span><p>첫 창업 사업초보<br><span>경력단절 여성 · 전업주부님들</span></p></div>
+    <div class="rec reveal"><span class="n">04</span><p>이커머스 쇼핑몰 운영<br><span>온라인 판매를 해보신 분</span></p></div>
+    <div class="rec reveal"><span class="n">05</span><p>홍보에 자신 있거나<br><span>온라인 마케팅을 해보신 분</span></p></div>
+    <div class="rec reveal"><span class="n">06</span><p>영업에 자신 있고<br><span>단체활동을 많이 하시는 분</span></p></div>
+  </div>
+</section>
+
+<!-- ⑦ 이용 안내 -->
+<section class="sec-info" id="s-info">
+  <div class="title-wrap reveal"><h2 class="title">시작하는 방법, <strong>미리 답해 드립니다</strong></h2></div>
+  <div class="information-wrap reveal">
+    <div class="info-card notice-info">
+      <h3 class="title">시작은 이렇게</h3>
+      <ul class="list step-list">
+        <li><em>1</em><div><b>창업 상담 신청</b><span>아래에서 성함과 연락처를 남깁니다.</span></div></li>
+        <li><em>2</em><div><b>상담 · 계약</b><span>상담부터 계약까지 본사가 직접 지원합니다.</span></div></li>
+        <li><em>3</em><div><b>판매 시작</b><span>본사 교육과 고객센터 지원 속에 나만의 홈페이지에서 판매를 시작합니다.</span></div></li>
+      </ul>
+    </div>
+    <div class="info-card news-info">
+      <h3 class="title">자주 묻는 질문</h3>
+      <ul class="list" id="faq"></ul>
+    </div>
+  </div>
+</section>
+
+<!-- ⑧ 신청 -->
+<section id="apply">
+  <div class="title-wrap reveal"><div><h2 class="title">빠른 <strong>창업상담</strong></h2><p class="lead">성함과 연락처를 남겨 주시면 본사에서 연락드립니다.</p></div></div>
+  <div class="apply-grid">
+    <div class="apply-l reveal">
+      <p class="k">HELLOBELL RENTAL</p>
+      <h3>소유의 시대에서<br><strong>렌탈의 시대로</strong></h3>
+      <ul class="perks">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>가맹비 · 교육비 · 보증금 없음</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>상담부터 계약까지 본사 지원</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>고객센터 100% 본사 지원</li>
+      </ul>
+      <p class="tel">가맹문의<b>010-7289-3803</b></p>
+    </div>
+    <div class="apply-r reveal" id="applyBox">
+      <div class="fields">
+        <h4>빠른 창업상담</h4>
+        <form id="form" novalidate>
+          <div class="fld" id="f-name"><label for="name">성함</label><input class="custom-input" id="name" type="text" autocomplete="name" placeholder="성함을 입력해 주세요"><div class="err">성함을 입력해 주세요.</div></div>
+          <div class="fld" id="f-tel"><label for="tel">전화번호</label><input class="custom-input" id="tel" type="tel" inputmode="numeric" autocomplete="tel" placeholder="010-0000-0000" maxlength="13"><div class="err">전화번호를 정확히 입력해 주세요.</div></div>
+          <label class="agree" id="f-agree"><input type="checkbox" id="agree"><span>개인정보 수집·이용에 동의합니다. 수집 항목은 성함·전화번호이며, 상담 안내 목적으로만 사용합니다.</span></label>
+          <button type="submit" class="btn point">신청하기</button>
+        </form>
+      </div>
+      <div class="done" role="status">
+        <div class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div>
+        <b>입력이 확인되었습니다</b>
+        <p>미리보기 단계라 신청 내용은 전송되지 않습니다.<br>접수 방식이 연결되면 본사에서 연락드립니다.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+</div>
+</main>
+
+<footer>
+  <div class="in">
+    <div class="f-top">
+      <div class="logo"><b>HelloBell</b><small>RENTAL</small></div>
+      <nav class="f-links" aria-label="약관 및 정책">
+        <a href="https://www.hellorent.co.kr" target="_blank" rel="noopener">개인정보처리방침</a><i></i><a href="https://www.hellorent.co.kr" target="_blank" rel="noopener">이메일 무단수집거부</a>
+      </nav>
+    </div>
+    <div class="f-info">
+      <p><b>(주)오픈엑스</b><span>대표이사 : 김미진</span><span>가맹문의 : <a href="tel:01072893803">010-7289-3803</a></span><span>사업자 등록번호 : 310-81-34293</span></p>
+      <p><span>주소 : 서울특별시 마포구 성암로 330, 8층 808호 (상암동, DMC첨단산업센터)</span></p>
+    </div>
+    <p class="copy">Copyright © 2026 HELLOBELLRENTAL. All Rights Reserved</p>
+    <p class="vat">* 안내된 금액은 VAT 별도입니다.</p>
+  </div>
+</footer>
+
+<a class="floating-banner" id="fbn" href="#apply">창업 상담 신청<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M8 7h9v9"/></svg></a>
+
+<script>
+const SHEET_URL = '';   /* 접수 방식 보류: 비어 있으면 입력 확인만 하고 전송하지 않는 미리보기로 동작합니다 */
+
+const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
+
+/* header widen */
+const hd = $('#header');
+addEventListener('scroll', () => hd.classList.toggle('widen', scrollY > 60), {passive:true});
+
+/* hero stage scale */
+const mbox = $('#mbox'), stage = $('#stage');
+function fit(){ if(innerWidth <= 900){ stage.style.removeProperty('--hs'); return; } stage.style.setProperty('--hs', mbox.clientWidth / 1840); }
+addEventListener('resize', fit); fit();
+
+/* ── 시장 차트 (원본 안내 자료의 수치) ── */
+const MK = [['2011','19조<br>5,000억',19.5],['2016','25조<br>9,000억',25.9],['2018','31조<br>9,000억',31.9],['2020','40조<br>1,000억',40.1],['2025','100조<br>(예상)',100]];
+$('#bars1').innerHTML = MK.map(([y,v,n]) => `<li class="${y==='2025'?'hi':''}"><span class="v">${v}</span><i class="b" style="height:${Math.max(n,12)*.62}%"></i><span class="y">${y}</span></li>`).join('');
+
+const HH = [['2020',30.0],['2025',31.9],['2030',33.2],['2035',35.6],['2040',36.2]];
+(() => { const x0 = 40, dx = 80, yb = 150, yt = 44, lo = 30, hi = 36.2;
+  const pts = HH.map(([y,v],i) => [x0 + i*dx, yb - (v-lo)/(hi-lo)*(yb-yt)]);
+  let g = `<polyline points="${pts.map(p=>p.join(',')).join(' ')}" fill="none" stroke="#2f5bff" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>`;
+  HH.forEach(([y,v],i) => { const [x,yy] = pts[i], last = i === HH.length-1;
+    g += `<line x1="${x}" y1="${yy}" x2="${x}" y2="172" stroke="rgba(7,26,82,.22)" stroke-dasharray="2 4"/>`;
+    g += `<circle cx="${x}" cy="${yy}" r="${last?9:7}" fill="#e9eeff" stroke="#2f5bff" stroke-width="3"/>`;
+    g += `<text x="${x}" y="${yy-18}" text-anchor="middle" font-size="15" font-weight="${last?800:700}" fill="${last?'#2f5bff':'#071a52'}">${v.toFixed(1)}%</text>`;
+    g += `<text x="${x}" y="197" text-anchor="middle" font-size="14" font-weight="600" fill="rgba(7,26,82,.64)">${y}</text>`; });
+  $('#lines').innerHTML = g; })();
+
+const WHY = [['합리적인 소비를 추구하는 소비자 증가',48.9],['1, 2인 가구의 증가',42.4],['짧아진 신제품 출시 주기',41.2],['가성비를 추구하는 소비',39.2],['고물가 시대로 인한 부담',35.6]];
+$('#hbars').innerHTML = WHY.map(([t,v]) => `<li><p>${t}</p><div class="tr"><i class="bar" style="width:${v/48.9*78}%"></i><b>${v}%</b></div></li>`).join('');
+
+/* booster accordion */
+const bl = $('#booster'), cards = $$('.booster-card');
+function activate(i){
+  cards.forEach((c, k) => c.dataset.active = k === i);
+  bl.style.gridTemplateColumns = cards.map((_, k) => k === i ? '3.16fr' : '1fr').join(' ');
+  $('#bprev').disabled = i === 0; $('#bnext').disabled = i === cards.length - 1;
+  bl.dataset.i = i;
+}
+cards.forEach((c, i) => { c.addEventListener('mouseenter', () => { if(matchMedia('(hover:hover)').matches && innerWidth > 900) activate(i); }); c.addEventListener('click', () => activate(i)); });
+$('#bprev').onclick = () => activate(Math.max(0, +bl.dataset.i - 1));
+$('#bnext').onclick = () => activate(Math.min(cards.length - 1, +bl.dataset.i + 1));
+activate(0);
+
+/* 제품 카테고리: 드래그·스와이프·바 모두 연동 */
+const PN = ['세탁기','건조기','청소기','TV','노트북','냉장고','식기세척기','에어컨','냉난방기','공기청정기','제습기','가구/침대','커피머신','오븐/전자레인지','운동기구','미용기구','의료기기','생활가전','비데','정수기','인터넷/IPTV','안마의자','음식물처리기','건강/뷰티'];
+$('#prodlist').innerHTML = PN.map((n,i) => `<li><div class="pi"><img src="assets/prod/p_${String(i+1).padStart(2,'0')}.png" alt="${n}" draggable="false" loading="lazy"></div><span>${n}</span></li>`).join('');
+const ptrack = $('#ptrack'), pbar = $('#pbar'), pthumb = $('#pthumb');
+function syncBar(){
+  const sw = ptrack.scrollWidth, cw = ptrack.clientWidth, max = sw - cw;
+  const w = Math.min(100, cw / sw * 100);
+  pthumb.style.width = w + '%';
+  pthumb.style.left = (max > 0 ? ptrack.scrollLeft / max * (100 - w) : 0) + '%';
+  $('#pprev').disabled = ptrack.scrollLeft <= 2; $('#pnext').disabled = ptrack.scrollLeft >= max - 2;
+}
+ptrack.addEventListener('scroll', syncBar, {passive:true});
+addEventListener('resize', syncBar);
+const step = () => ptrack.clientWidth * .8;
+$('#pprev').onclick = () => ptrack.scrollBy({left:-step(), behavior:'smooth'});
+$('#pnext').onclick = () => ptrack.scrollBy({left:step(), behavior:'smooth'});
+(() => { let down = false, sx = 0, sl = 0, moved = false;
+  ptrack.addEventListener('pointerdown', e => { if(e.pointerType !== 'mouse') return; down = true; moved = false; sx = e.clientX; sl = ptrack.scrollLeft; });
+  addEventListener('pointermove', e => { if(!down) return; const dx = e.clientX - sx; if(Math.abs(dx) > 4){ moved = true; ptrack.classList.add('drag'); } if(moved) ptrack.scrollLeft = sl - dx; });
+  addEventListener('pointerup', () => { if(!down) return; down = false; ptrack.classList.remove('drag'); });
+})();
+(() => { let down = false;
+  const setFrom = x => { const r = pbar.getBoundingClientRect(), max = ptrack.scrollWidth - ptrack.clientWidth, w = pthumb.getBoundingClientRect().width;
+    const t = Math.min(1, Math.max(0, (x - r.left - w / 2) / (r.width - w))); ptrack.scrollLeft = t * max; };
+  pbar.addEventListener('pointerdown', e => { down = true; ptrack.style.scrollSnapType = 'none'; setFrom(e.clientX); e.preventDefault(); });
+  addEventListener('pointermove', e => { if(down) setFrom(e.clientX); });
+  addEventListener('pointerup', () => { if(down){ down = false; ptrack.style.scrollSnapType = ''; } });
+})();
+addEventListener('load', syncBar); syncBar();
+
+/* 파트너 로고 16개 */
+const LW = [64.6,51.4,51.4,44.4,19.6,17.0,22.5,21.9,62.4,58.5,53.6,52.1,73.0,34.4,60.8,61.4];
+const LN = ['삼성','LG전자','코웨이','SK매직','KT','SK브로드밴드','LG U+','HP','쿠쿠','네스프레소','캐리어','위니아','청호나이스','아디다스','장수돌침대','세라젬'];
+$('#logos').innerHTML = LN.map((n,i) => `<li class="reveal"><img style="--w:${LW[i]}%" src="assets/logos/c_${String(i+1).padStart(2,'0')}.png" alt="${n}" loading="lazy"></li>`).join('');
+
+/* FAQ */
+const FAQ = [
+  ['창업비용은 얼마인가요?', '가맹비·교육비·보증금·월 운영비는 없습니다. 나만의 홈페이지 분양대금만 있으며, 월 10만원(월납 24개월) 분납 또는 200만원 일시불 중에서 고를 수 있습니다.'],
+  ['투잡이나 부업으로도 가능한가요?', '네. 본사의 체계적인 교육과 고객센터 운영으로 직장인도 주부도 쉽게 운영할 수 있습니다.'],
+  ['고객 응대는 누가 하나요?', '고객센터는 100% 본사가 지원하며, 상담부터 계약까지 상담대행도 지원합니다.'],
+  ['어떤 제품을 판매할 수 있나요?', '삼성, LG, SK 등 다양한 브랜드의 4만 가지 렌탈 제품과 인터넷·IPTV를 판매할 수 있습니다.']
+];
+$('#faq').innerHTML = FAQ.map(([q, a]) => `<li class="faq-i"><button class="faq-q" type="button">${q}</button><p class="faq-a">${a}</p></li>`).join('');
+$$('.faq-i').forEach(li => li.querySelector('.faq-q').onclick = () => li.classList.toggle('open'));
+
+/* reveal */
+const io = new IntersectionObserver(es => es.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } }), {threshold:.12, rootMargin:'0px 0px -6% 0px'});
+$$('.reveal').forEach(el => io.observe(el));
+
+/* floating CTA */
+const fb = $('#fbn'), applyEl = $('#apply');
+let pastHero = false, inApply = false;
+const upd = () => fb.classList.toggle('show', pastHero && !inApply);
+new IntersectionObserver(es => { pastHero = !es[0].isIntersecting; upd(); }, {threshold:0, rootMargin:'-200px 0px 0px 0px'}).observe(mbox);
+new IntersectionObserver(es => { inApply = es[0].isIntersecting; upd(); }, {threshold:.15}).observe(applyEl);
+
+/* form (접수 방식 보류 — 미리보기) */
+const form = $('#form'), tel = $('#tel');
+tel.addEventListener('input', () => { const d = tel.value.replace(/\D/g, '').slice(0, 11);
+  tel.value = d.length > 7 ? d.replace(/(\d{3})(\d{4})(\d{0,4})/, '$1-$2-$3') : d.length > 3 ? d.replace(/(\d{3})(\d{0,4})/, '$1-$2') : d; });
+form.addEventListener('submit', async e => {
+  e.preventDefault();
+  const name = $('#name').value.trim(), t = tel.value.replace(/\D/g, ''), ok = $('#agree').checked, telOk = /^01[016789]\d{7,8}$/.test(t);
+  $('#f-name').classList.toggle('bad', !name); $('#f-tel').classList.toggle('bad', !telOk); $('#f-agree').classList.toggle('bad', !ok);
+  if(!name || !telOk || !ok) return;
+  if(SHEET_URL){
+    const payload = {name, tel:tel.value, at:new Date().toISOString(), page:'hellobell-rental'};
+    try{ await fetch(SHEET_URL, {method:'POST', mode:'no-cors', headers:{'Content-Type':'text/plain'}, body:JSON.stringify(payload)}); }
+    catch(err){ alert('접수 중 오류가 발생했습니다. 잠시 후 다시 시도해 주세요.'); return; }
+    $('.done b').textContent = '상담 신청이 접수되었습니다';
+    $('.done p').innerHTML = '확인 후 남겨 주신 연락처로 연락드립니다.';
+  }
+  $('#applyBox').classList.add('sent');
+});
+</script>
+</body>
+</html>
