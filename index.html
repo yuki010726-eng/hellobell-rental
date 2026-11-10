@@ -16,13 +16,13 @@
   --paper:#f3f6fc;
   --tint:#e9eeff;
   --line:rgba(7,26,82,.1);
-  --mute:rgba(7,26,82,.64);
-  --mute2:rgba(7,26,82,.42);
+  --mute:rgba(7,26,82,.74);
+  --mute2:rgba(7,26,82,.54);
   --pad:7.4rem;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-body{font-family:'Pretendard Variable','Pretendard','Malgun Gothic',sans-serif;font-size:1.6rem;font-weight:400;line-height:1.5;letter-spacing:-.025em;color:var(--navy);background:var(--white);word-break:keep-all;overflow-wrap:break-word;-webkit-font-smoothing:antialiased;font-variant-numeric:tabular-nums}
+body{font-family:'Pretendard Variable','Pretendard','Malgun Gothic',sans-serif;font-size:1.6rem;font-weight:400;line-height:1.5;letter-spacing:-.02em;color:var(--navy);background:var(--white);word-break:keep-all;overflow-wrap:break-word;-webkit-font-smoothing:antialiased;font-variant-numeric:tabular-nums}
 img{display:block;max-width:100%}
 a{color:inherit;text-decoration:none}
 button{font:inherit;letter-spacing:inherit;color:inherit;background:none;border:0;cursor:pointer}
@@ -57,7 +57,7 @@ section{margin-bottom:16rem}
 .title-wrap{display:flex;align-items:center;justify-content:space-between;margin-bottom:5rem;gap:3rem}
 .title-wrap .title{font-size:4rem;font-weight:400;letter-spacing:-.07rem;line-height:1.3}
 .title-wrap .title strong{font-weight:700}
-.title-wrap .lead{margin-top:1.6rem;font-size:1.9rem;font-weight:400;color:var(--mute);line-height:1.6;letter-spacing:-.03em;max-width:68rem}
+.title-wrap .lead{margin-top:1.6rem;font-size:2rem;font-weight:400;color:var(--mute);line-height:1.65;letter-spacing:-.03em;max-width:80rem}
 .btn-wrap{display:flex;gap:.8rem;align-items:center}
 .btn-round{width:5.2rem;height:5.2rem;border-radius:50%;border:1px solid var(--line);background:var(--white);display:flex;align-items:center;justify-content:center;transition:opacity .2s}
 .btn-round:hover{opacity:.55}
@@ -107,12 +107,12 @@ section{margin-bottom:16rem}
 .mk .k{font-size:1.4rem;font-weight:700;letter-spacing:.06rem;color:var(--blue)}
 .mk.n .k{color:rgba(255,255,255,.75)}
 .mk h3{margin-top:1rem;font-size:2.6rem;font-weight:700;line-height:1.3;letter-spacing:-.06rem}
-.mk .u{margin-top:.6rem;font-size:1.4rem;color:var(--mute2)}
+.mk .u{margin-top:.6rem;font-size:1.5rem;color:var(--mute2)}
 .mk.n .u{color:rgba(255,255,255,.65)}
 /* 막대 */
 .bars{margin-top:auto;display:flex;align-items:flex-end;justify-content:space-between;gap:1rem;height:25rem;padding-top:2rem}
 .bars li{flex:1;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;height:100%;text-align:center}
-.bars .v{font-size:1.25rem;font-weight:600;line-height:1.3;color:var(--mute);margin-bottom:.8rem}
+.bars .v{font-size:1.4rem;font-weight:600;line-height:1.3;color:var(--mute);margin-bottom:.8rem}
 .bars .b{width:100%;max-width:5.4rem;border-radius:1.4rem 1.4rem .6rem .6rem;background:rgba(7,26,82,.16)}
 .bars .y{margin-top:1rem;font-size:1.5rem;font-weight:600;color:var(--mute)}
 .bars li.hi .v{color:var(--blue);font-weight:800;font-size:1.5rem}
@@ -124,7 +124,7 @@ section{margin-bottom:16rem}
 .line text{font-family:inherit;letter-spacing:-.02em}
 /* 가로 막대 */
 .hbars{margin-top:auto;display:grid;gap:2rem;padding-top:2rem}
-.hbars li p{font-size:1.5rem;font-weight:500;line-height:1.35;margin-bottom:.8rem;color:rgba(255,255,255,.9)}
+.hbars li p{font-size:1.6rem;font-weight:500;line-height:1.35;margin-bottom:.8rem;color:rgba(255,255,255,.9)}
 .hbars .tr{display:flex;align-items:center;gap:1.2rem}
 .hbars .bar{height:1.2rem;border-radius:99rem;background:var(--white);opacity:.92}
 .hbars li:not(:first-child) .bar{opacity:.55}
@@ -158,11 +158,11 @@ section{margin-bottom:16rem}
 .booster-card .lead{margin-bottom:2rem;font-size:1.6rem;line-height:1.6;color:var(--mute);max-width:56rem}
 .booster-card.c4 .lead{color:rgba(255,255,255,.82)}
 .mini-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
-.mini{display:flex;align-items:center;gap:1.4rem;padding:1.8rem 2rem;border-radius:2rem;background:var(--white);font-size:1.6rem;font-weight:600;line-height:1.35}
+.mini{display:flex;align-items:center;gap:1.4rem;padding:1.8rem 2rem;border-radius:2rem;background:var(--white);font-size:1.7rem;font-weight:600;line-height:1.35}
 .mini svg{flex:none;width:2.4rem;height:2.4rem;color:var(--blue)}
 .mini.span2{grid-column:1/3}
 .c-list li{position:relative;padding:1.3rem 0 1.3rem 2.6rem;font-size:1.7rem;font-weight:500;border-top:1px solid rgba(255,255,255,.18)}
-.c-list li small{display:block;margin-top:.2rem;font-size:1.4rem;font-weight:400;opacity:.72}
+.c-list li small{display:block;margin-top:.2rem;font-size:1.5rem;font-weight:400;opacity:.72}
 .c-list li::before{content:"+";position:absolute;left:0;top:1.1rem;font-size:2.2rem;font-weight:700;color:var(--white)}
 .scroll-indicator{position:relative;width:100%;height:.6rem;background:var(--paper);border-radius:99rem;overflow:hidden;margin-top:3.6rem}
 .scroll-thumb{position:absolute;height:100%;width:25%;background:var(--navy);transition:left .3s ease-in-out;border-radius:99rem;left:0}
@@ -184,10 +184,10 @@ section{margin-bottom:16rem}
 .case{border-radius:3.2rem;background:var(--paper);padding:1.6rem 1.6rem 2.6rem;overflow:hidden}
 .case .ph{aspect-ratio:380/290;border-radius:2.2rem;overflow:hidden;background:var(--white);margin-bottom:2rem}
 .case .ph img{width:100%;height:100%;object-fit:cover;object-position:top}
-.case .l{padding:0 1rem;font-size:1.4rem;color:var(--mute)}
+.case .l{padding:0 1rem;font-size:1.6rem;color:var(--mute)}
 .case .a{padding:0 1rem;margin-top:.2rem;font-size:3rem;font-weight:700;letter-spacing:-.07rem;color:var(--blue)}
 .case .a small{font-size:1.8rem;font-weight:600;margin-left:.2rem}
-.note{margin-top:2.4rem;font-size:1.4rem;color:var(--mute);line-height:1.6}
+.note{margin-top:2.4rem;font-size:1.5rem;color:var(--mute);line-height:1.6}
 
 /* ───── ⑤ products + partners ───── */
 .prod-track-wrap{overflow-x:auto;scrollbar-width:none;scroll-snap-type:x proximity;cursor:grab;user-select:none;-webkit-user-select:none;overscroll-behavior-x:contain}
@@ -197,12 +197,14 @@ section{margin-bottom:16rem}
 .product-wrap li{flex:0 0 16rem;height:20rem;scroll-snap-align:start;display:flex;flex-direction:column;align-items:center;border:1px solid var(--line);border-radius:2.4rem;background:var(--white);padding:2.2rem 1.2rem 1.8rem}
 .product-wrap .pi{flex:1;width:100%;display:flex;align-items:center;justify-content:center;min-height:0}
 .product-wrap img{max-width:62%;max-height:100%;width:auto;height:auto;-webkit-user-drag:none;pointer-events:none}
-.product-wrap span{margin-top:1.2rem;font-size:1.4rem;font-weight:500;color:var(--mute);letter-spacing:-.02em;white-space:nowrap}
-.scroll-indicator.slim{margin-top:3.2rem;height:.8rem;cursor:pointer;overflow:visible;background:var(--paper)}
+.product-wrap span{margin-top:1.2rem;font-size:1.6rem;font-weight:500;color:var(--mute);letter-spacing:-.02em;white-space:nowrap}
+.scroll-indicator.slim{margin-top:3rem;height:.4rem;cursor:pointer;overflow:visible;background:rgba(7,26,82,.08)}
 .scroll-indicator.slim::before{content:"";position:absolute;left:0;right:0;top:-1.2rem;bottom:-1.2rem}
-.scroll-indicator.slim .scroll-thumb{transition:none;cursor:grab;height:100%}
-.sub-label{margin:9rem 0 2.4rem;font-size:2.8rem;font-weight:700;display:flex;align-items:baseline;gap:1.4rem}
-.sub-label small{font-size:1.6rem;font-weight:400;color:var(--mute)}
+.scroll-indicator.slim .scroll-thumb{transition:none;cursor:grab;height:100%;background:var(--blue)}
+.sub-label{margin:8rem 0 3rem;padding-top:6rem;border-top:1px solid var(--line)}
+.sub-label h3{font-size:3rem;font-weight:400;line-height:1.35;letter-spacing:-.05rem}
+.sub-label h3 strong{font-weight:700}
+.sub-label p{margin-top:1rem;font-size:1.8rem;color:var(--mute)}
 .logo-grid{display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:1.2rem}
 .logo-grid li{aspect-ratio:280/120;display:flex;align-items:center;justify-content:center;border:1px solid var(--line);border-radius:2rem;background:var(--white);transition:border-color .25s,transform .25s}
 .logo-grid li:hover{border-color:var(--blue);transform:translateY(-.4rem)}
@@ -223,14 +225,14 @@ section{margin-bottom:16rem}
 .fee-opts{display:grid;grid-template-columns:1fr 1fr;gap:1rem;width:100%}
 .fee-opts div{padding:2rem 2.4rem;border-radius:2rem;background:var(--white)}
 .fee-opts div.hi{background:var(--blue);color:var(--white)}
-.fee-opts small{display:block;font-size:1.4rem;font-weight:500;opacity:.7}
+.fee-opts small{display:block;font-size:1.5rem;font-weight:500;opacity:.7}
 .fee-opts b{display:block;margin-top:.4rem;font-size:2.8rem;font-weight:700;letter-spacing:-.07rem}
-.fee-opts em{display:block;margin-top:.2rem;font-style:normal;font-size:1.3rem;opacity:.7}
+.fee-opts em{display:block;margin-top:.2rem;font-style:normal;font-size:1.5rem;opacity:.7}
 .rec-grid{margin-top:1.6rem;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.6rem}
-.rec{border-radius:3.2rem;background:var(--paper);padding:3.6rem 4rem;min-height:19rem;display:flex;flex-direction:column;justify-content:space-between}
-.rec .n{font-size:1.4rem;font-weight:700;letter-spacing:.06rem;color:var(--blue)}
-.rec p{font-size:2.2rem;font-weight:700;line-height:1.4;letter-spacing:-.05rem}
-.rec p span{font-weight:400;color:var(--mute)}
+.rec{display:flex;align-items:center;gap:2.2rem;min-height:15.6rem;padding:2rem 3rem 2rem 2.2rem;border-radius:99rem;background:var(--paper)}
+.rec img{flex:none;width:10.4rem;height:10.4rem;border-radius:50%}
+.rec p{font-size:2.1rem;font-weight:500;line-height:1.45;letter-spacing:-.04em}
+.rec p b{font-weight:800;color:var(--blue)}
 
 /* ───── ⑦ info ───── */
 .information-wrap{display:flex;align-items:stretch;gap:1.6rem}
@@ -243,13 +245,13 @@ section{margin-bottom:16rem}
 .faq-q{display:flex;align-items:center;justify-content:space-between;width:100%;text-align:left;font-size:1.7rem;font-weight:500}
 .faq-q::after{content:"";flex:none;width:.9rem;height:.9rem;border-right:.2rem solid var(--mute);border-bottom:.2rem solid var(--mute);transform:rotate(45deg) translateY(-.2rem);transition:transform .25s;margin-left:2rem}
 .faq-i.open .faq-q::after{transform:rotate(-135deg) translate(-.2rem,-.2rem)}
-.faq-a{display:none;margin-top:1.2rem;font-size:1.5rem;line-height:1.7;color:var(--mute);padding-right:3.2rem}
+.faq-a{display:none;margin-top:1.2rem;font-size:1.6rem;line-height:1.7;color:var(--mute);padding-right:3.2rem}
 .faq-i.open .faq-a{display:block}
 .faq-i{display:block !important}
 .step-list li{gap:1.6rem;justify-content:flex-start}
 .step-list em{flex:none;font-style:normal;width:3.6rem;height:3.6rem;border-radius:50%;background:var(--navy);color:var(--white);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1.6rem}
 .step-list b{display:block;font-size:1.8rem;font-weight:700}
-.step-list span{display:block;font-size:1.5rem;color:var(--mute);margin-top:.2rem}
+.step-list span{display:block;font-size:1.6rem;color:var(--mute);margin-top:.2rem}
 
 /* ───── ⑧ apply ───── */
 .apply-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.6rem}
@@ -273,9 +275,9 @@ section{margin-bottom:16rem}
 .custom-input::placeholder{color:var(--mute2);font-weight:400}
 .custom-input:focus{border-color:var(--blue);box-shadow:0 0 0 .4rem rgba(47,91,255,.14)}
 .fld.bad .custom-input{border-color:var(--navy)}
-.fld .err{display:none;margin-top:.6rem;font-size:1.3rem;color:var(--blue)}
+.fld .err{display:none;margin-top:.6rem;font-size:1.5rem;color:var(--blue)}
 .fld.bad .err{display:block}
-.agree{display:flex;gap:1rem;align-items:flex-start;font-size:1.4rem;color:var(--mute);line-height:1.55;margin:2.4rem 0}
+.agree{display:flex;gap:1rem;align-items:flex-start;font-size:1.5rem;color:var(--mute);line-height:1.55;margin:2.4rem 0}
 .agree input{margin-top:.3rem;width:1.8rem;height:1.8rem;accent-color:var(--navy);flex:none}
 .agree.bad{color:var(--blue)}
 .btn.point{display:flex;align-items:center;justify-content:center;width:100%;height:6rem;border-radius:1.2rem;font-size:2rem;font-weight:700;background:var(--blue);color:var(--white);transition:opacity .2s}
@@ -288,7 +290,7 @@ section{margin-bottom:16rem}
 .apply-r.sent .fields{display:none}.apply-r.sent .done{display:block}
 
 /* ───── footer / floating ───── */
-footer{background:var(--navy);color:rgba(255,255,255,.6);padding:6rem 0 12rem;font-size:1.4rem}
+footer{background:var(--navy);color:rgba(255,255,255,.72);padding:6rem 0 12rem;font-size:1.5rem}
 footer .in{max-width:128rem;margin:0 auto;padding:0 1.6rem}
 footer .logo{color:var(--white)}
 footer .logo small{color:rgba(255,255,255,.55)}
@@ -301,8 +303,8 @@ footer .f-info{margin-top:3.2rem;display:grid;gap:.8rem;font-size:1.5rem;line-he
 footer .f-info p{display:flex;flex-wrap:wrap;gap:.4rem 3rem}
 footer .f-info b{font-weight:600;color:rgba(255,255,255,.85)}
 footer .f-info a{color:inherit}
-footer .copy{margin-top:3.6rem;font-size:1.4rem;color:rgba(255,255,255,.55)}
-footer .vat{margin-top:1rem;font-size:1.3rem;color:rgba(255,255,255,.45)}
+footer .copy{margin-top:3.6rem;font-size:1.5rem;color:rgba(255,255,255,.66)}
+footer .vat{margin-top:1rem;font-size:1.4rem;color:rgba(255,255,255,.6)}
 #apply{margin-bottom:0}
 .floating-banner{position:fixed;right:5rem;bottom:5rem;z-index:90;display:flex;align-items:center;gap:1.2rem;height:7.2rem;padding:0 3rem 0 3.4rem;border-radius:5rem;background:var(--navy);color:var(--white);font-size:1.8rem;font-weight:700;transform:translateY(16rem);transition:transform .5s cubic-bezier(.2,.7,.2,1),opacity .2s}
 .floating-banner.show{transform:none}
@@ -319,6 +321,7 @@ footer .vat{margin-top:1rem;font-size:1.3rem;color:rgba(255,255,255,.45)}
   .logo-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
   .gnb{margin-left:2rem}.gnb a{padding:2rem 1.2rem;font-size:1.6rem}
   .rec-grid{grid-template-columns:1fr 1fr}
+  .rec{padding-right:2rem;gap:1.4rem}.rec img{width:8rem;height:8rem}.rec p{font-size:1.8rem}
 }
 @media (max-width:900px){
   :root{--pad:2rem}
@@ -544,7 +547,7 @@ footer .vat{margin-top:1rem;font-size:1.3rem;color:rgba(255,255,255,.45)}
 <!-- ⑤ 제품 · 파트너 -->
 <section class="sec-prod" id="s-prod">
   <div class="title-wrap reveal">
-    <div><h2 class="title">4만 가지 <strong>렌탈 가능 제품</strong></h2><p class="lead">생활가전부터 침대·정수기, 인터넷·IPTV까지. 내 홈페이지 하나로 다양한 제품을 판매할 수 있어요.</p></div>
+    <div><h2 class="title">4만 가지 <strong>렌탈 가능 제품</strong></h2><p class="lead">생활가전부터 침대·정수기, 인터넷·IPTV까지. 어떤 제품이든 내 홈페이지 하나로 판매할 수 있어요.</p></div>
     <div class="btn-wrap">
       <button class="btn-round" id="pprev" aria-label="이전"><svg viewBox="0 0 24 24" fill="none" stroke="#071a52" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg></button>
       <button class="btn-round" id="pnext" aria-label="다음"><svg viewBox="0 0 24 24" fill="none" stroke="#071a52" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></button>
@@ -553,7 +556,7 @@ footer .vat{margin-top:1rem;font-size:1.3rem;color:rgba(255,255,255,.45)}
   <div class="prod-track-wrap reveal" id="ptrack"><ul class="product-wrap" id="prodlist"></ul></div>
   <div class="scroll-indicator slim" id="pbar"><div class="scroll-thumb" id="pthumb"></div></div>
 
-  <p class="sub-label reveal">헬로벨렌탈 파트너 <small>다양한 브랜드와 함께합니다</small></p>
+  <div class="sub-label reveal"><h3>이 모든 제품, <strong>16개 브랜드</strong>와 함께합니다</h3><p>삼성·LG·코웨이·SK매직 등 믿을 수 있는 브랜드의 제품을 렌탈로 판매하세요.</p></div>
   <ul class="logo-grid" id="logos"></ul>
 </section>
 
@@ -581,12 +584,12 @@ footer .vat{margin-top:1rem;font-size:1.3rem;color:rgba(255,255,255,.45)}
   </div>
   <div class="title-wrap reveal" style="margin:9rem 0 3.2rem"><div><h2 class="title">이런 분께 <strong>추천합니다</strong></h2><p class="lead">헬로벨렌탈과 동반성장 할 분을 찾습니다.</p></div></div>
   <div class="rec-grid">
-    <div class="rec reveal"><span class="n">01</span><p>리스크 적게<br>소자본 창업을 하고 싶은 분</p></div>
-    <div class="rec reveal"><span class="n">02</span><p>투잡으로 틈틈이<br>할 일을 찾고 있는 분</p></div>
-    <div class="rec reveal"><span class="n">03</span><p>첫 창업 사업초보<br><span>경력단절 여성 · 전업주부님들</span></p></div>
-    <div class="rec reveal"><span class="n">04</span><p>이커머스 쇼핑몰 운영<br><span>온라인 판매를 해보신 분</span></p></div>
-    <div class="rec reveal"><span class="n">05</span><p>홍보에 자신 있거나<br><span>온라인 마케팅을 해보신 분</span></p></div>
-    <div class="rec reveal"><span class="n">06</span><p>영업에 자신 있고<br><span>단체활동을 많이 하시는 분</span></p></div>
+    <div class="rec reveal"><img src="assets/people/p1.png" alt="" loading="lazy"><p>리스크 적게<br><b>소자본 창업</b>을<br>하고 싶은 분</p></div>
+    <div class="rec reveal"><img src="assets/people/p2.png" alt="" loading="lazy"><p>투잡으로<br><b>틈틈이 할 일</b>을<br>찾고 있는 분</p></div>
+    <div class="rec reveal"><img src="assets/people/p3.png" alt="" loading="lazy"><p>첫 창업 사업초보<br><b>경력단절 여성</b><br>전업주부님들</p></div>
+    <div class="rec reveal"><img src="assets/people/p4.png" alt="" loading="lazy"><p>이커머스 쇼핑몰 운영<br><b>온라인 판매</b>를<br>해보신 분</p></div>
+    <div class="rec reveal"><img src="assets/people/p5.png" alt="" loading="lazy"><p>홍보에 자신 있거나<br><b>온라인 마케팅</b>을<br>해보신 분</p></div>
+    <div class="rec reveal"><img src="assets/people/p6.png" alt="" loading="lazy"><p><b>영업에 자신</b> 있고<br>단체활동을<br>많이 하시는 분</p></div>
   </div>
 </section>
 
