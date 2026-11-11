@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<script>document.documentElement.classList.add('js')</script>
 <title>헬로벨렌탈 — 월 10만원으로 시작하는 온라인 렌탈 대리점</title>
 <meta name="description" content="소유의 시대에서 렌탈의 시대로. 무점포 소자본으로 시작하는 전자제품 온라인 렌탈 대리점, 헬로벨렌탈.">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css">
@@ -17,20 +18,27 @@
   --tint:#e9eeff;
   --line:rgba(7,26,82,.1);
   --mute:rgba(7,26,82,.74);
-  --mute2:rgba(7,26,82,.54);
+  --mute2:rgba(7,26,82,.68);
+  --ease:cubic-bezier(.22,1,.36,1);
   --pad:7.4rem;
 }
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;scrollbar-color:rgba(7,26,82,.32) var(--paper)}
 body{font-family:'Pretendard Variable','Pretendard','Malgun Gothic',sans-serif;font-size:1.6rem;font-weight:400;line-height:1.5;letter-spacing:-.02em;color:var(--navy);background:var(--white);word-break:keep-all;overflow-wrap:break-word;-webkit-font-smoothing:antialiased;font-variant-numeric:tabular-nums}
 img{display:block;max-width:100%}
 a{color:inherit;text-decoration:none}
 button{font:inherit;letter-spacing:inherit;color:inherit;background:none;border:0;cursor:pointer}
 ul,ol{list-style:none}
 svg{display:block}
+::selection{background:var(--blue);color:var(--white)}
+input{caret-color:var(--blue)}
+:focus-visible{outline:.3rem solid var(--blue);outline-offset:.3rem}
+:is(.hero-shape,.mk.n,.rev-l,.cost-l,.apply-l,.booster-card.c4,footer) :focus-visible{outline-color:var(--white)}
+section[id]{scroll-margin-top:11rem}
+h1,h2,h3,h4{text-wrap:balance}
 
 /* ───── util + header ───── */
-.util{height:4.4rem;padding:0 var(--pad);background:var(--paper);display:flex;align-items:center;justify-content:space-between;font-size:1.3rem;color:var(--mute2)}
+.util{height:4.4rem;padding:0 var(--pad);background:var(--paper);display:flex;align-items:center;justify-content:space-between;font-size:1.5rem;color:var(--mute2)}
 .util a{color:var(--mute)}
 .util a:hover{color:var(--navy)}
 header#header{position:sticky;top:0;z-index:100;padding:0 2.4rem;background:var(--paper);transition:padding .3s}
@@ -39,7 +47,7 @@ header#header.widen{padding:0}
 header#header.widen .header-inner{border-radius:0;padding-inline:var(--pad);height:8.8rem;border-bottom:1px solid var(--line)}
 .logo{display:flex;align-items:center;gap:.9rem;color:var(--blue);font-style:italic;white-space:nowrap}
 .logo b{font-weight:800;font-size:3.2rem;letter-spacing:-.08rem;line-height:1}
-.logo small{font-style:normal;font-size:1.05rem;font-weight:700;letter-spacing:.24rem;color:var(--mute2);padding-top:1.2rem}
+.logo small{font-style:normal;font-size:1.2rem;font-weight:700;letter-spacing:.2rem;color:var(--mute2);padding-top:1.2rem}
 .gnb{margin-left:6rem}
 .gnb ul{display:flex;gap:2rem}
 .gnb a{display:block;padding:2.15rem 2rem;border-radius:2rem;font-size:1.8rem;font-weight:500;transition:background .2s}
@@ -63,9 +71,9 @@ section{margin-bottom:16rem}
 .btn-round:hover{opacity:.55}
 .btn-round[disabled]{opacity:.35;cursor:default}
 .btn-round svg{width:2.4rem;height:2.4rem}
-.reveal{opacity:0;transform:translateY(2rem);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.7,.2,1)}
-.reveal.in{opacity:1;transform:none}
-@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+.js .reveal{opacity:0;transform:translateY(1.6rem);transition:opacity .6s ease,transform .7s var(--ease)}
+.js .reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.js .reveal{opacity:1;transform:none}html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.01ms !important;transition-duration:.01ms !important;transition-delay:0s !important}}
 
 /* ───── ① key visual ───── */
 .sec-key-content{margin-bottom:16rem}
@@ -104,29 +112,32 @@ section{margin-bottom:16rem}
 .mk{position:relative;overflow:hidden;border-radius:4rem;padding:4rem;min-height:46rem;display:flex;flex-direction:column;background:var(--paper)}
 .mk.t{background:var(--tint)}
 .mk.n{color:var(--white);background:var(--blue)}
-.mk .k{font-size:1.4rem;font-weight:700;letter-spacing:.06rem;color:var(--blue)}
-.mk.n .k{color:rgba(255,255,255,.75)}
-.mk h3{margin-top:1rem;font-size:2.6rem;font-weight:700;line-height:1.3;letter-spacing:-.06rem}
+.mk h3{font-size:2.6rem;font-weight:700;line-height:1.3;letter-spacing:-.06rem}
 .mk .u{margin-top:.6rem;font-size:1.5rem;color:var(--mute2)}
-.mk.n .u{color:rgba(255,255,255,.65)}
+.mk.n .u{color:rgba(255,255,255,.92)}
 /* 막대 */
 .bars{margin-top:auto;display:flex;align-items:flex-end;justify-content:space-between;gap:1rem;height:25rem;padding-top:2rem}
 .bars li{flex:1;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;height:100%;text-align:center}
-.bars .v{font-size:1.4rem;font-weight:600;line-height:1.3;color:var(--mute);margin-bottom:.8rem}
-.bars .b{width:100%;max-width:5.4rem;border-radius:1.4rem 1.4rem .6rem .6rem;background:rgba(7,26,82,.16)}
+.bars .v{font-size:1.5rem;font-weight:600;line-height:1.3;color:var(--mute);margin-bottom:.8rem}
+.bars .b{width:100%;max-width:5.4rem;border-radius:1.4rem 1.4rem .6rem .6rem;background:rgba(7,26,82,.16);transform-origin:50% 100%;transition:transform .9s var(--ease) calc(.2s + var(--i,0)*.07s)}
+.js .mk:not(.in) .bars .b{transform:scaleY(0)}
+.bars .v .sm{display:none}
 .bars .y{margin-top:1rem;font-size:1.5rem;font-weight:600;color:var(--mute)}
-.bars li.hi .v{color:var(--blue);font-weight:800;font-size:1.5rem}
+.bars li.hi .v{color:var(--blue);font-weight:800;font-size:1.6rem}
 .bars li.hi .b{background:var(--blue)}
 .bars li.hi .y{color:var(--navy);font-weight:800}
 /* 꺾은선 */
 .line{margin-top:auto;padding-top:2rem}
 .line svg{width:100%;height:auto;overflow:visible}
 .line text{font-family:inherit;letter-spacing:-.02em}
+.line polyline{stroke-dasharray:1;stroke-dashoffset:0;transition:stroke-dashoffset 1.2s var(--ease) .2s}
+.js .mk:not(.in) .line polyline{stroke-dashoffset:1}
 /* 가로 막대 */
 .hbars{margin-top:auto;display:grid;gap:2rem;padding-top:2rem}
-.hbars li p{font-size:1.6rem;font-weight:500;line-height:1.35;margin-bottom:.8rem;color:rgba(255,255,255,.9)}
+.hbars li p{font-size:1.6rem;font-weight:500;line-height:1.35;margin-bottom:.8rem;color:rgba(255,255,255,.94)}
 .hbars .tr{display:flex;align-items:center;gap:1.2rem}
-.hbars .bar{height:1.2rem;border-radius:99rem;background:var(--white);opacity:.92}
+.hbars .bar{height:1.2rem;border-radius:99rem;background:var(--white);opacity:.92;transform-origin:0 50%;transition:transform .9s var(--ease) calc(.2s + var(--i,0)*.07s)}
+.js .mk:not(.in) .hbars .bar{transform:scaleX(0)}
 .hbars li:not(:first-child) .bar{opacity:.55}
 .hbars b{font-size:1.7rem;font-weight:700;white-space:nowrap}
 
@@ -139,10 +150,8 @@ section{margin-bottom:16rem}
 .booster-card.c4[data-active='false']:hover{background:var(--blue)}
 .booster-card>article{position:relative;width:100%;height:100%;display:flex;flex-direction:column;padding:4rem 3rem}
 .booster-card[data-active='true']>article{padding:4rem}
-.booster-card .no{font-size:1.4rem;font-weight:700;letter-spacing:.06rem;color:var(--blue)}
-.booster-card.c4 .no{color:rgba(255,255,255,.75)}
-.booster-card .badge{position:absolute;right:4rem;top:3.6rem;padding:.7rem 1.4rem;border-radius:4rem;background:var(--white);color:var(--navy);font-size:1.4rem;font-weight:600;line-height:2rem;white-space:nowrap;opacity:0;transition:opacity .3s}
-.booster-card .title{margin-top:1.2rem;font-weight:700;letter-spacing:-.05rem;line-height:1.3}
+.booster-card .badge{position:absolute;right:4rem;top:3.6rem;padding:.7rem 1.4rem;border-radius:4rem;background:var(--white);color:var(--navy);font-size:1.5rem;font-weight:600;line-height:2rem;white-space:nowrap;opacity:0;transition:opacity .3s}
+.booster-card .title{font-weight:700;letter-spacing:-.05rem;line-height:1.3}
 .booster-card .t-long{display:none;font-size:3rem;max-width:42rem}
 .booster-card .t-short{display:block;font-size:9.4cqw;white-space:nowrap;letter-spacing:-.045em;line-height:1.35}
 .booster-card .more{margin-top:auto;width:4.4rem;height:4.4rem;border-radius:50%;background:var(--white);display:flex;align-items:center;justify-content:center;color:var(--navy);transition:transform .3s}
@@ -156,13 +165,13 @@ section{margin-bottom:16rem}
 .booster-card[data-active='true'] .body{display:block;animation:rise .6s .15s both cubic-bezier(.22,1,.36,1)}
 @keyframes rise{from{opacity:0;transform:translateY(1.2rem)}to{opacity:1;transform:none}}
 .booster-card .lead{margin-bottom:2rem;font-size:1.6rem;line-height:1.6;color:var(--mute);max-width:56rem}
-.booster-card.c4 .lead{color:rgba(255,255,255,.82)}
+.booster-card.c4 .lead{color:rgba(255,255,255,.92)}
 .mini-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
 .mini{display:flex;align-items:center;gap:1.4rem;padding:1.8rem 2rem;border-radius:2rem;background:var(--white);font-size:1.7rem;font-weight:600;line-height:1.35}
 .mini svg{flex:none;width:2.4rem;height:2.4rem;color:var(--blue)}
 .mini.span2{grid-column:1/3}
 .c-list li{position:relative;padding:1.3rem 0 1.3rem 2.6rem;font-size:1.7rem;font-weight:500;border-top:1px solid rgba(255,255,255,.18)}
-.c-list li small{display:block;margin-top:.2rem;font-size:1.5rem;font-weight:400;opacity:.72}
+.c-list li small{display:block;margin-top:.2rem;font-size:1.5rem;font-weight:400;opacity:.92}
 .c-list li::before{content:"+";position:absolute;left:0;top:1.1rem;font-size:2.2rem;font-weight:700;color:var(--white)}
 .scroll-indicator{position:relative;width:100%;height:.6rem;background:var(--paper);border-radius:99rem;overflow:hidden;margin-top:3.6rem}
 .scroll-thumb{position:absolute;height:100%;width:25%;background:var(--navy);transition:left .3s ease-in-out;border-radius:99rem;left:0}
@@ -175,8 +184,7 @@ section{margin-bottom:16rem}
 /* ───── ④ revenue ───── */
 .rev-grid{display:grid;grid-template-columns:34rem minmax(0,1fr);gap:1.6rem}
 .rev-l{position:relative;overflow:hidden;border-radius:4rem;padding:4.4rem;color:var(--white);background:var(--blue);display:flex;flex-direction:column}
-.rev-l .k{font-size:1.4rem;font-weight:700;letter-spacing:.06rem;opacity:.75}
-.rev-l h3{margin-top:1.2rem;font-size:2.8rem;font-weight:700;line-height:1.3;letter-spacing:-.06rem}
+.rev-l h3{font-size:2.8rem;font-weight:700;line-height:1.3;letter-spacing:-.06rem}
 .rev-l ul{margin-top:auto;padding-top:3rem}
 .rev-l li{display:flex;justify-content:space-between;align-items:center;padding:1.6rem 0;border-top:1px solid rgba(255,255,255,.2);font-size:1.7rem;font-weight:500}
 .rev-l li b{font-size:1.8rem;font-weight:700}
@@ -206,17 +214,15 @@ section{margin-bottom:16rem}
 .sub-label h3 strong{font-weight:700}
 .sub-label p{margin-top:1rem;font-size:1.8rem;color:var(--mute)}
 .logo-grid{display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:1.2rem}
-.logo-grid li{aspect-ratio:280/120;display:flex;align-items:center;justify-content:center;border:1px solid var(--line);border-radius:2rem;background:var(--white);transition:border-color .25s,transform .25s}
-.logo-grid li:hover{border-color:var(--blue);transform:translateY(-.4rem)}
+.logo-grid li{aspect-ratio:280/120;display:flex;align-items:center;justify-content:center;border:1px solid var(--line);border-radius:2rem;background:var(--white)}
 .logo-grid img{width:var(--w,60%);height:auto}
 
 /* ───── ⑥ cost + recommend ───── */
 .cost-grid{display:grid;grid-template-columns:1fr 1.25fr;gap:1.6rem}
 .cost-l{position:relative;overflow:hidden;border-radius:4rem;padding:5.2rem;color:var(--white);background:var(--blue);display:flex;flex-direction:column;min-height:50rem}
-.cost-l .k{font-size:1.4rem;font-weight:700;letter-spacing:.06rem;opacity:.75}
-.cost-l h3{margin-top:2rem;font-size:5rem;font-weight:300;line-height:1.3;letter-spacing:-.12rem}
+.cost-l h3{font-size:5rem;font-weight:300;line-height:1.3;letter-spacing:-.12rem}
 .cost-l h3 strong{font-weight:700}
-.cost-l p.s{margin-top:auto;font-size:1.8rem;line-height:1.7;opacity:.88;max-width:40rem}
+.cost-l p.s{margin-top:auto;font-size:1.8rem;line-height:1.7;opacity:.94;max-width:40rem}
 .cost-r{border-radius:4rem;background:var(--paper);padding:2rem 4.4rem;display:flex;flex-direction:column;justify-content:center}
 .cost-r .row{display:flex;align-items:center;justify-content:space-between;padding:2.6rem 0;border-top:1px solid var(--line);font-size:2rem;font-weight:600}
 .cost-r .row:first-child{border-top:0}
@@ -228,6 +234,7 @@ section{margin-bottom:16rem}
 .fee-opts small{display:block;font-size:1.5rem;font-weight:500;opacity:.7}
 .fee-opts b{display:block;margin-top:.4rem;font-size:2.8rem;font-weight:700;letter-spacing:-.07rem}
 .fee-opts em{display:block;margin-top:.2rem;font-style:normal;font-size:1.5rem;opacity:.7}
+.fee-opts .hi small,.fee-opts .hi em{opacity:.94}
 .rec-grid{margin-top:1.6rem;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.6rem}
 .rec{display:flex;align-items:center;gap:2.2rem;min-height:15.6rem;padding:2rem 3rem 2rem 2.2rem;border-radius:99rem;background:var(--paper)}
 .rec img{flex:none;width:10.4rem;height:10.4rem;border-radius:50%}
@@ -242,10 +249,11 @@ section{margin-bottom:16rem}
 .info-card .title{font-size:2rem;font-weight:700;line-height:1.3}
 .list{margin-top:3.2rem;display:flex;flex-direction:column;gap:2.4rem}
 .list li{display:flex;align-items:center;justify-content:space-between;width:100%}
-.faq-q{display:flex;align-items:center;justify-content:space-between;width:100%;text-align:left;font-size:1.7rem;font-weight:500}
+.faq-q{display:flex;align-items:center;justify-content:space-between;width:100%;min-height:4.8rem;text-align:left;font-size:1.7rem;font-weight:500}
+#faq{gap:.8rem}
 .faq-q::after{content:"";flex:none;width:.9rem;height:.9rem;border-right:.2rem solid var(--mute);border-bottom:.2rem solid var(--mute);transform:rotate(45deg) translateY(-.2rem);transition:transform .25s;margin-left:2rem}
 .faq-i.open .faq-q::after{transform:rotate(-135deg) translate(-.2rem,-.2rem)}
-.faq-a{display:none;margin-top:1.2rem;font-size:1.6rem;line-height:1.7;color:var(--mute);padding-right:3.2rem}
+.faq-a{display:none;margin-top:.4rem;padding-bottom:1.2rem;font-size:1.6rem;line-height:1.7;color:var(--mute);padding-right:3.2rem}
 .faq-i.open .faq-a{display:block}
 .faq-i{display:block !important}
 .step-list li{gap:1.6rem;justify-content:flex-start}
@@ -258,15 +266,14 @@ section{margin-bottom:16rem}
 .apply-l{border-radius:4rem;color:var(--white);padding:5.2rem;position:relative;overflow:hidden;min-height:58rem;display:flex;flex-direction:column;background:var(--navy) url(assets/wave.jpg) 40% 50%/cover}
 .apply-l::after{content:"";position:absolute;inset:0;background:rgba(7,26,82,.26);pointer-events:none}
 .apply-l>*{position:relative;z-index:1}
-.apply-l .k{font-size:1.4rem;font-weight:700;letter-spacing:.2rem;opacity:.75}
-.apply-l h3{margin-top:2rem;font-size:5.2rem;font-weight:300;line-height:1.3;letter-spacing:-.1rem}
+.apply-l h3{font-size:5.2rem;font-weight:300;line-height:1.3;letter-spacing:-.1rem}
 .apply-l h3 strong{font-weight:700}
 .apply-l .perks{margin-top:3.2rem;display:grid}
 .apply-l .perks li{display:flex;align-items:center;gap:1.4rem;padding:1.5rem 0;border-top:1px solid rgba(255,255,255,.2);font-size:1.8rem;font-weight:500}
 .apply-l .perks li:last-child{border-bottom:1px solid rgba(255,255,255,.2)}
 .apply-l .perks svg{flex:none;width:2.4rem;height:2.4rem}
-.apply-l .tel{margin-top:auto;padding-top:3.6rem;font-size:1.5rem;opacity:.85}
-.apply-l .tel b{display:block;margin-top:.4rem;font-size:3.2rem;font-weight:700;letter-spacing:-.06rem}
+.apply-l .tel{margin-top:auto;padding-top:3.6rem;font-size:1.5rem;opacity:.94}
+.apply-l .tel b{display:block;margin-top:.4rem;font-size:3.2rem;font-weight:700;letter-spacing:-.06rem;white-space:nowrap}
 .apply-r{border-radius:4rem;background:var(--paper);padding:5.6rem}
 .apply-r h4{font-size:2.4rem;font-weight:700;margin-bottom:3.2rem}
 .fld{margin-bottom:2rem}
@@ -304,8 +311,12 @@ footer .f-info p{display:flex;flex-wrap:wrap;gap:.4rem 3rem}
 footer .f-info b{font-weight:600;color:rgba(255,255,255,.85)}
 footer .f-info a{color:inherit}
 footer .copy{margin-top:3.6rem;font-size:1.5rem;color:rgba(255,255,255,.66)}
-footer .vat{margin-top:1rem;font-size:1.4rem;color:rgba(255,255,255,.6)}
+footer .vat{margin-top:1rem;font-size:1.5rem;color:rgba(255,255,255,.6)}
 #apply{margin-bottom:0}
+.pill,.banner-contents .btn,.btn.point,.btn-round{transition:opacity .2s,transform .15s}
+.pill:active,.banner-contents .btn:active,.btn.point:active,.btn-round:not([disabled]):active{transform:scale(.97)}
+.btn.point[disabled]{opacity:.6;cursor:progress}
+.send-err{margin-top:1.4rem;font-size:1.6rem;font-weight:600;line-height:1.5;color:var(--navy)}
 .floating-banner{position:fixed;right:5rem;bottom:5rem;z-index:90;display:flex;align-items:center;gap:1.2rem;height:7.2rem;padding:0 3rem 0 3.4rem;border-radius:5rem;background:var(--navy);color:var(--white);font-size:1.8rem;font-weight:700;transform:translateY(16rem);transition:transform .5s cubic-bezier(.2,.7,.2,1),opacity .2s}
 .floating-banner.show{transform:none}
 .floating-banner:hover{opacity:.85}
@@ -320,6 +331,7 @@ footer .vat{margin-top:1rem;font-size:1.4rem;color:rgba(255,255,255,.6)}
   .mk-grid{grid-template-columns:1fr 1fr}
   .logo-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
   .gnb{margin-left:2rem}.gnb a{padding:2rem 1.2rem;font-size:1.6rem}
+  .booster-card .badge{display:none}
   .rec-grid{grid-template-columns:1fr 1fr}
   .rec{padding-right:2rem;gap:1.4rem}.rec img{width:8rem;height:8rem}.rec p{font-size:1.8rem}
 }
@@ -329,22 +341,23 @@ footer .vat{margin-top:1rem;font-size:1.4rem;color:rgba(255,255,255,.6)}
   .gnb{display:none}
   .logo b{font-size:2.6rem}
   .util{display:none}
-  .pill{height:4rem;padding:0 1.6rem;font-size:1.4rem}.pill svg{display:none}
-  .marketing-box{aspect-ratio:auto;height:60rem}
+  .pill{height:4.4rem;padding:0 1.8rem;font-size:1.5rem}.pill svg{display:none}
+  main{padding:0 1.2rem 1.2rem}header#header{padding:0 1.2rem}
+  .marketing-box{aspect-ratio:auto;height:64rem}
   .stage{position:absolute;width:100%;height:100%;zoom:1}
   .hero-shape{clip-path:none;border-radius:2.4rem}
   .banner-contents{left:2.8rem;right:2.8rem;top:6rem}
   .banner-contents .desc{font-size:1.8rem}.banner-contents .tit{font-size:3.6rem;letter-spacing:-.07rem}
   .banner-contents .btn-wrap{flex-wrap:wrap;margin-top:2.4rem}
-  .banner-contents .btn{padding:0 2rem;height:4.6rem;font-size:1.6rem}
+  .banner-contents .btn{padding:0 1.8rem;height:4.8rem;font-size:1.6rem}.banner-contents .btn svg{display:none}
   .hero-shape .art{--k:.46;right:50%;transform:translateX(50%);bottom:2.4rem}
   .notch-link{display:none}
   .mk-grid,.rec-grid,.information-wrap{grid-template-columns:minmax(0,1fr);flex-direction:column}
-  .mk{min-height:0;padding:3.2rem}
+  .mk{min-height:0;padding:3.2rem 2.4rem}
+  .bars{gap:.4rem}.bars li{min-width:0}.bars .v .lg{display:none}.bars .v .sm{display:inline}
   .booster-list{grid-template-columns:1fr !important;height:auto}
   .booster-card[data-active='false'] .t-short{font-size:2rem;white-space:normal}
   .booster-card[data-active='false'] .more{margin-top:1.2rem;width:3.6rem;height:3.6rem}
-  .booster-card .badge{display:none}
   .booster-card[data-active='true'] .body{margin-top:2.4rem}
   .mini-grid{grid-template-columns:1fr}.mini.span2{grid-column:auto}
   .mk-box{flex-direction:column;align-items:flex-start;padding:3.2rem}.chips{justify-content:flex-start}
@@ -352,7 +365,7 @@ footer .vat{margin-top:1rem;font-size:1.4rem;color:rgba(255,255,255,.6)}
   .title-wrap .lead{font-size:1.6rem}
   .cases{grid-template-columns:1fr 1fr}
   .rev-l,.cost-l,.apply-l,.apply-r{padding:3.2rem;min-height:0}
-  .cost-l h3,.apply-l h3{font-size:3.6rem}
+  .cost-l h3,.apply-l h3{font-size:3.6rem}.apply-l .tel b{font-size:2.8rem}
   .cost-r{padding:1.2rem 2.4rem}
   .fee-opts{grid-template-columns:1fr}
   .logo-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
@@ -368,7 +381,7 @@ footer .vat{margin-top:1rem;font-size:1.4rem;color:rgba(255,255,255,.6)}
 
 <header id="header">
   <div class="header-inner">
-    <h1><a class="logo" href="#top" aria-label="헬로벨렌탈 홈"><b>HelloBell</b><small>RENTAL</small></a></h1>
+    <a class="logo" href="#top" aria-label="헬로벨렌탈 홈"><b>HelloBell</b><small>RENTAL</small></a>
     <nav class="gnb" aria-label="주요 메뉴"><ul>
       <li><a href="#s-market">렌탈 시장</a></li>
       <li><a href="#s-why">본사 지원</a></li>
@@ -394,7 +407,7 @@ footer .vat{margin-top:1rem;font-size:1.4rem;color:rgba(255,255,255,.6)}
       <div class="hero-shape">
         <div class="banner-contents">
           <p class="desc">소유의 시대에서 렌탈의 시대로</p>
-          <p class="tit">월 10만원으로 시작하는<br>온라인 렌탈 대리점</p>
+          <h1 class="tit">월 10만원으로 시작하는<br>온라인 렌탈 대리점</h1>
           <div class="btn-wrap">
             <a class="btn d" href="#apply">창업 상담 신청<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M8 7h9v9"/></svg></a>
             <a class="btn w" href="#s-cost">창업비용 보기<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M8 7h9v9"/></svg></a>
@@ -419,13 +432,11 @@ footer .vat{margin-top:1rem;font-size:1.4rem;color:rgba(255,255,255,.6)}
   <div class="title-wrap reveal"><div><h2 class="title">렌탈로 눈을 돌리는 <strong>시대입니다</strong></h2><p class="lead">빠르게 변화하는 시대, 소비자들의 선택은 렌탈 서비스. 부담이 큰 구매보다 부담이 적은 렌탈을 찾는 1인 가구가 늘고 있어요.</p></div></div>
   <div class="mk-grid">
     <div class="mk reveal">
-      <p class="k">MARKET</p>
       <h3>급성장하는 렌탈시장,<br>2025년 100조 돌파 예상</h3>
       <p class="u">국내 렌탈시장 규모 추이 및 전망 · 단위 : 원</p>
       <ul class="bars" id="bars1"></ul>
     </div>
     <div class="mk t reveal">
-      <p class="k">SINGLE HOUSEHOLD</p>
       <h3>1인 가구의 증가로<br>높아진 렌탈 수요</h3>
       <p class="u">전체 가구 중 1인 가구의 비율 · 단위 : 년</p>
       <div class="line">
@@ -436,9 +447,8 @@ footer .vat{margin-top:1rem;font-size:1.4rem;color:rgba(255,255,255,.6)}
       </div>
     </div>
     <div class="mk n reveal">
-      <p class="k">WHY RENTAL</p>
       <h3>렌탈을 찾는 이유</h3>
-      <p class="u" style="opacity:.7">소비자가 렌탈을 선택하는 이유 · 단위 : %</p>
+      <p class="u">소비자가 렌탈을 선택하는 이유 · 단위 : %</p>
       <ul class="hbars" id="hbars"></ul>
     </div>
   </div>
@@ -457,7 +467,7 @@ footer .vat{margin-top:1rem;font-size:1.4rem;color:rgba(255,255,255,.6)}
     <ul class="booster-list" id="booster">
 
       <li class="booster-card c1" data-active="true"><article>
-        <span class="no">01</span><span class="badge">소자본 · 무점포</span>
+        <span class="badge">소자본 · 무점포</span>
         <h3 class="title"><span class="t-long">월 10만원으로 시작하는<br>무점포 소자본 창업</span><span class="t-short">월 10만원<br>무점포 창업</span></h3>
         <div class="body">
           <div class="mini-grid">
@@ -471,7 +481,7 @@ footer .vat{margin-top:1rem;font-size:1.4rem;color:rgba(255,255,255,.6)}
       </article></li>
 
       <li class="booster-card c2" data-active="false"><article>
-        <span class="no">02</span><span class="badge">본사 지원</span>
+        <span class="badge">본사 지원</span>
         <h3 class="title"><span class="t-long">상담부터 계약까지<br>본사가 직접 지원합니다</span><span class="t-short">상담부터 계약<br>본사가</span></h3>
         <div class="body">
           <p class="lead">운영 부담은 줄이고, 계약 성과는 극대화합니다. 직장인도 주부도 쉽게 운영할 수 있어요.</p>
@@ -485,7 +495,7 @@ footer .vat{margin-top:1rem;font-size:1.4rem;color:rgba(255,255,255,.6)}
       </article></li>
 
       <li class="booster-card c3" data-active="false"><article>
-        <span class="no">03</span><span class="badge">나만의 홈페이지</span>
+        <span class="badge">나만의 홈페이지</span>
         <h3 class="title"><span class="t-long">나만의 브랜드를 살린<br>독립 홈페이지를 드립니다</span><span class="t-short">나만의<br>홈페이지</span></h3>
         <div class="body">
           <p class="lead">독립적인 렌탈 홈페이지 제작부터 운영까지 지원합니다. 언제 어디서든 내 이름으로 판매하세요.</p>
@@ -498,7 +508,7 @@ footer .vat{margin-top:1rem;font-size:1.4rem;color:rgba(255,255,255,.6)}
       </article></li>
 
       <li class="booster-card c4" data-active="false"><article>
-        <span class="no">04</span><span class="badge">핵심 경쟁력</span>
+        <span class="badge">핵심 경쟁력</span>
         <h3 class="title"><span class="t-long">오직 헬로벨렌탈에서만<br>만날 수 있는 라인업</span><span class="t-short">핵심<br>경쟁력</span></h3>
         <div class="body">
           <ul class="c-list">
@@ -522,7 +532,6 @@ footer .vat{margin-top:1rem;font-size:1.4rem;color:rgba(255,255,255,.6)}
   <div class="title-wrap reveal"><div><h2 class="title">렌탈 판매하면 <strong>얼마나 벌까?</strong></h2><p class="lead">나만의 브랜드를 살린 독립적인 홈페이지로 판매한 파트너들의 월 수익 사례입니다.</p></div></div>
   <div class="rev-grid">
     <div class="rev-l reveal">
-      <p class="k">COMMISSION</p>
       <h3>제품별<br>판매 수수료 예시</h3>
       <ul>
         <li>정수기<b>렌탈료 8배</b></li>
@@ -565,7 +574,6 @@ footer .vat{margin-top:1rem;font-size:1.4rem;color:rgba(255,255,255,.6)}
   <div class="title-wrap reveal"><div><h2 class="title">창업비용, <strong>이만큼이면 됩니다</strong></h2><p class="lead">헬로벨렌탈만의 시스템으로 저렴한 창업 비용, 리스크 걱정 없이 렌탈 창업에 도전할 수 있습니다.</p></div></div>
   <div class="cost-grid">
     <div class="cost-l reveal">
-      <p class="k">START COST</p>
       <h3>가맹비·교육비<br>보증금 <strong>없음</strong></h3>
       <p class="s">나만의 홈페이지 분양대금만으로 시작합니다. 월 운영비도 없어요.</p>
     </div>
@@ -617,23 +625,23 @@ footer .vat{margin-top:1rem;font-size:1.4rem;color:rgba(255,255,255,.6)}
   <div class="title-wrap reveal"><div><h2 class="title">빠른 <strong>창업상담</strong></h2><p class="lead">성함과 연락처를 남겨 주시면 본사에서 연락드립니다.</p></div></div>
   <div class="apply-grid">
     <div class="apply-l reveal">
-      <p class="k">HELLOBELL RENTAL</p>
       <h3>소유의 시대에서<br><strong>렌탈의 시대로</strong></h3>
       <ul class="perks">
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>가맹비 · 교육비 · 보증금 없음</li>
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>상담부터 계약까지 본사 지원</li>
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>고객센터 100% 본사 지원</li>
       </ul>
-      <p class="tel">가맹문의<b>010-7289-3803</b></p>
+      <p class="tel">가맹문의<b><a href="tel:01072893803">010-7289-3803</a></b></p>
     </div>
     <div class="apply-r reveal" id="applyBox">
       <div class="fields">
         <h4>빠른 창업상담</h4>
         <form id="form" novalidate>
-          <div class="fld" id="f-name"><label for="name">성함</label><input class="custom-input" id="name" type="text" autocomplete="name" placeholder="성함을 입력해 주세요"><div class="err">성함을 입력해 주세요.</div></div>
-          <div class="fld" id="f-tel"><label for="tel">전화번호</label><input class="custom-input" id="tel" type="tel" inputmode="numeric" autocomplete="tel" placeholder="010-0000-0000" maxlength="13"><div class="err">전화번호를 정확히 입력해 주세요.</div></div>
+          <div class="fld" id="f-name"><label for="name">성함</label><input class="custom-input" id="name" type="text" autocomplete="name" placeholder="성함을 입력해 주세요" aria-describedby="e-name"><div class="err" id="e-name" role="alert">성함을 입력해 주세요.</div></div>
+          <div class="fld" id="f-tel"><label for="tel">전화번호</label><input class="custom-input" id="tel" type="tel" inputmode="numeric" autocomplete="tel" placeholder="010-0000-0000" maxlength="13" aria-describedby="e-tel"><div class="err" id="e-tel" role="alert">휴대전화 번호 10~11자리를 입력해 주세요.</div></div>
           <label class="agree" id="f-agree"><input type="checkbox" id="agree"><span>개인정보 수집·이용에 동의합니다. 수집 항목은 성함·전화번호이며, 상담 안내 목적으로만 사용합니다.</span></label>
-          <button type="submit" class="btn point">신청하기</button>
+          <button type="submit" class="btn point" id="send">신청하기</button>
+          <p class="send-err" id="sendErr" role="alert" hidden>접수하지 못했습니다. 잠시 후 다시 눌러 주시거나 010-7289-3803으로 전화해 주세요.</p>
         </form>
       </div>
       <div class="done" role="status">
@@ -682,13 +690,13 @@ function fit(){ if(innerWidth <= 900){ stage.style.removeProperty('--hs'); retur
 addEventListener('resize', fit); fit();
 
 /* ── 시장 차트 (원본 안내 자료의 수치) ── */
-const MK = [['2011','19조<br>5,000억',19.5],['2016','25조<br>9,000억',25.9],['2018','31조<br>9,000억',31.9],['2020','40조<br>1,000억',40.1],['2025','100조<br>(예상)',100]];
-$('#bars1').innerHTML = MK.map(([y,v,n]) => `<li class="${y==='2025'?'hi':''}"><span class="v">${v}</span><i class="b" style="height:${Math.max(n,12)*.62}%"></i><span class="y">${y}</span></li>`).join('');
+const MK = [['2011','19조<br>5,000억',19.5,'19.5조'],['2016','25조<br>9,000억',25.9,'25.9조'],['2018','31조<br>9,000억',31.9,'31.9조'],['2020','40조<br>1,000억',40.1,'40.1조'],['2025','100조<br>(예상)',100,'100조<br>(예상)']];
+$('#bars1').innerHTML = MK.map(([y,v,n,sv],i) => `<li class="${y==='2025'?'hi':''}"><span class="v"><span class="lg">${v}</span><span class="sm">${sv}</span></span><i class="b" style="--i:${i};height:${Math.max(n,12)*.62}%"></i><span class="y">${y}</span></li>`).join('');
 
 const HH = [['2020',30.0],['2025',31.9],['2030',33.2],['2035',35.6],['2040',36.2]];
 (() => { const x0 = 40, dx = 80, yb = 150, yt = 44, lo = 30, hi = 36.2;
   const pts = HH.map(([y,v],i) => [x0 + i*dx, yb - (v-lo)/(hi-lo)*(yb-yt)]);
-  let g = `<polyline points="${pts.map(p=>p.join(',')).join(' ')}" fill="none" stroke="#2f5bff" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>`;
+  let g = `<polyline pathLength="1" points="${pts.map(p=>p.join(',')).join(' ')}" fill="none" stroke="#2f5bff" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>`;
   HH.forEach(([y,v],i) => { const [x,yy] = pts[i], last = i === HH.length-1;
     g += `<line x1="${x}" y1="${yy}" x2="${x}" y2="172" stroke="rgba(7,26,82,.22)" stroke-dasharray="2 4"/>`;
     g += `<circle cx="${x}" cy="${yy}" r="${last?9:7}" fill="#e9eeff" stroke="#2f5bff" stroke-width="3"/>`;
@@ -697,7 +705,7 @@ const HH = [['2020',30.0],['2025',31.9],['2030',33.2],['2035',35.6],['2040',36.2
   $('#lines').innerHTML = g; })();
 
 const WHY = [['합리적인 소비를 추구하는 소비자 증가',48.9],['1, 2인 가구의 증가',42.4],['짧아진 신제품 출시 주기',41.2],['가성비를 추구하는 소비',39.2],['고물가 시대로 인한 부담',35.6]];
-$('#hbars').innerHTML = WHY.map(([t,v]) => `<li><p>${t}</p><div class="tr"><i class="bar" style="width:${v/48.9*78}%"></i><b>${v}%</b></div></li>`).join('');
+$('#hbars').innerHTML = WHY.map(([t,v],i) => `<li><p>${t}</p><div class="tr"><i class="bar" style="--i:${i};width:${v/48.9*78}%"></i><b>${v}%</b></div></li>`).join('');
 
 /* booster accordion */
 const bl = $('#booster'), cards = $$('.booster-card');
@@ -707,7 +715,7 @@ function activate(i){
   $('#bprev').disabled = i === 0; $('#bnext').disabled = i === cards.length - 1;
   bl.dataset.i = i;
 }
-cards.forEach((c, i) => { c.addEventListener('mouseenter', () => { if(matchMedia('(hover:hover)').matches && innerWidth > 900) activate(i); }); c.addEventListener('click', () => activate(i)); });
+cards.forEach((c, i) => { c.tabIndex = 0; c.addEventListener('focus', () => activate(i)); c.addEventListener('mouseenter', () => { if(matchMedia('(hover:hover)').matches && innerWidth > 900) activate(i); }); c.addEventListener('click', () => activate(i)); });
 $('#bprev').onclick = () => activate(Math.max(0, +bl.dataset.i - 1));
 $('#bnext').onclick = () => activate(Math.min(cards.length - 1, +bl.dataset.i + 1));
 activate(0);
@@ -754,8 +762,8 @@ const FAQ = [
   ['고객 응대는 누가 하나요?', '고객센터는 100% 본사가 지원하며, 상담부터 계약까지 상담대행도 지원합니다.'],
   ['어떤 제품을 판매할 수 있나요?', '삼성, LG, SK 등 다양한 브랜드의 4만 가지 렌탈 제품과 인터넷·IPTV를 판매할 수 있습니다.']
 ];
-$('#faq').innerHTML = FAQ.map(([q, a]) => `<li class="faq-i"><button class="faq-q" type="button">${q}</button><p class="faq-a">${a}</p></li>`).join('');
-$$('.faq-i').forEach(li => li.querySelector('.faq-q').onclick = () => li.classList.toggle('open'));
+$('#faq').innerHTML = FAQ.map(([q, a]) => `<li class="faq-i"><button class="faq-q" type="button" aria-expanded="false">${q}</button><p class="faq-a">${a}</p></li>`).join('');
+$$('.faq-i').forEach(li => { const b = li.querySelector('.faq-q'); b.onclick = () => b.setAttribute('aria-expanded', li.classList.toggle('open')); });
 
 /* reveal */
 const io = new IntersectionObserver(es => es.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } }), {threshold:.12, rootMargin:'0px 0px -6% 0px'});
@@ -772,15 +780,20 @@ new IntersectionObserver(es => { inApply = es[0].isIntersecting; upd(); }, {thre
 const form = $('#form'), tel = $('#tel');
 tel.addEventListener('input', () => { const d = tel.value.replace(/\D/g, '').slice(0, 11);
   tel.value = d.length > 7 ? d.replace(/(\d{3})(\d{4})(\d{0,4})/, '$1-$2-$3') : d.length > 3 ? d.replace(/(\d{3})(\d{0,4})/, '$1-$2') : d; });
+$('#name').addEventListener('input', () => { $('#f-name').classList.remove('bad'); $('#name').removeAttribute('aria-invalid'); });
+tel.addEventListener('input', () => { $('#f-tel').classList.remove('bad'); tel.removeAttribute('aria-invalid'); });
+$('#agree').addEventListener('change', () => $('#f-agree').classList.remove('bad'));
 form.addEventListener('submit', async e => {
   e.preventDefault();
   const name = $('#name').value.trim(), t = tel.value.replace(/\D/g, ''), ok = $('#agree').checked, telOk = /^01[016789]\d{7,8}$/.test(t);
   $('#f-name').classList.toggle('bad', !name); $('#f-tel').classList.toggle('bad', !telOk); $('#f-agree').classList.toggle('bad', !ok);
-  if(!name || !telOk || !ok) return;
+  $('#name').setAttribute('aria-invalid', !name); tel.setAttribute('aria-invalid', !telOk);
+  if(!name || !telOk || !ok){ (!name ? $('#name') : !telOk ? tel : $('#agree')).focus(); return; }
   if(SHEET_URL){
     const payload = {name, tel:tel.value, at:new Date().toISOString(), page:'hellobell-rental'};
+    const send = $('#send'); send.disabled = true; send.textContent = '접수 중…'; $('#sendErr').hidden = true;
     try{ await fetch(SHEET_URL, {method:'POST', mode:'no-cors', headers:{'Content-Type':'text/plain'}, body:JSON.stringify(payload)}); }
-    catch(err){ alert('접수 중 오류가 발생했습니다. 잠시 후 다시 시도해 주세요.'); return; }
+    catch(err){ $('#sendErr').hidden = false; send.disabled = false; send.textContent = '신청하기'; return; }
     $('.done b').textContent = '상담 신청이 접수되었습니다';
     $('.done p').innerHTML = '확인 후 남겨 주신 연락처로 연락드립니다.';
   }
