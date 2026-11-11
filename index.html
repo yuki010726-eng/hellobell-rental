@@ -64,12 +64,13 @@ main{padding:0 2.4rem 2.4rem;background:var(--paper)}
 section{margin-bottom:16rem}
 .util-l{display:flex;gap:2.4rem}
 /* 제품 섹션: 파란 면으로 레이아웃 전환 */
-.main-inner section.sec-prod{max-width:none;margin-inline:-1.6rem;margin-bottom:0;padding:9rem max(calc(var(--pad) + 1.6rem),calc((100% - 128rem)/2 + 1.6rem)) 10rem;background:var(--blue);color:var(--white)}
+.main-inner section.sec-prod{max-width:none;margin-inline:-1.6rem;margin-bottom:0;padding:9rem 0 10rem;background:var(--blue);color:var(--white)}
+.sec-prod .title-wrap{width:min(128rem,calc(100% - 2 * (var(--pad) + 1.6rem)));margin-inline:auto}
+.sec-prod .prod-track-wrap{margin:0;padding:0}
 .sec-prod .title-wrap .lead{color:rgba(255,255,255,.88)}
 .sec-prod .product-wrap li{border-color:transparent}
 .sec-prod .product-wrap span{color:var(--navy)}
 .main-inner section.sec-brand{padding-top:10rem}
-@media(max-width:1024px){.main-inner section.sec-prod{padding-inline:calc(var(--pad) + 1.6rem)}}
 
 .title-wrap{display:flex;align-items:center;justify-content:space-between;margin-bottom:5rem;gap:3rem}
 .title-wrap .title{font-size:4rem;font-weight:400;letter-spacing:-.07rem;line-height:1.3}
@@ -243,6 +244,7 @@ section{margin-bottom:16rem}
 .fee-opts div.hi{background:var(--blue);color:var(--white)}
 .fee-opts small{display:block;font-size:1.5rem;font-weight:500;opacity:.7}
 .fee-opts b{display:block;margin-top:.4rem;font-size:2.8rem;font-weight:700;letter-spacing:-.07rem}
+.fee-opts b i{margin-left:.8rem;font-style:normal;font-size:1.4rem;font-weight:500;letter-spacing:0;opacity:.7}
 .fee-opts em{display:block;margin-top:.2rem;font-style:normal;font-size:1.5rem;opacity:.7}
 .fee-opts .hi small,.fee-opts .hi em{opacity:.94}
 .rec-grid{margin-top:1.6rem;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.6rem}
@@ -591,8 +593,8 @@ footer .vat{margin-top:1rem;font-size:1.5rem;color:rgba(255,255,255,.6)}
       <div class="row">보증금<span>없음</span></div>
       <div class="row fee">홈페이지 분양대금
         <div class="fee-opts">
-          <div class="hi"><small>분납</small><b>월 10만원</b><em>월납 24개월</em></div>
-          <div><small>일시불</small><b>200만원</b></div>
+          <div class="hi"><small>분납</small><b>월 10만원<i>VAT 별도</i></b><em>월납 24개월</em></div>
+          <div><small>일시불</small><b>200만원<i>VAT 별도</i></b></div>
         </div>
       </div>
       <div class="row">월 운영비<span>없음</span></div>
